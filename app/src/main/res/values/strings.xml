@@ -1,0 +1,86 @@
+<resources>
+    <string name="app_name">HelpMe_App</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+
+    <string name="txttitleRegister">Dejanos tu <font color="#F6A700"><b>correo</b></font> para empezar juntos</string>
+    <string name="txtcontidions">Al continuar acepto las condiciones de <b>Helpme!</b>.<font color="#E1AD01"><b><u>Politicas de Privacidad y Terminos de Uso</u></b></font></string>
+    <string name="txthintEmail">ingrese su correo</string>
+    <string name="btnNext">Siguiente</string>
+
+    <string name="txtquestionStudentAdviser">¿Eres <font color="#F6A700"><b>Estudiante🎓</b></font> o <font color="#F6A700"><b>Asesor Academico 📚</b></font>? Elije una opcion para continuar</string>
+    <string name="btnStudent">Estudiante</string>
+    <string name="btnAdviser">Asesor Academico</string>
+
+    <string name="txttitleAdviser">Ahora, hagamos que te registres como <font color="#F6A700"><b>Asesor</b></font></string>
+    <string name="code">Codigo</string>
+    <string name="txtName">Nombres</string>
+    <string name="txtLastName">Apellidos</string>
+    <string name="txtIdentity">Doc. Identidad</string>
+    <string name="txtPassword">Contraseña</string>
+    <string name="txtbirthdate">Fecha de Nacimiento</string>
+    <string name="acceptNotification">Acepto la <b><u>Politica de Privacidad</u></b> de Helpme! y <b><u>Condiciones de Uso</u></b></string>
+    <string name="privacyPolicy">Acepto recibir correos electronicos de actualizaciones de Helpme!</string>
+    <string name="btncreateAccount">Crear Cuenta</string>
+
+    //JUAN CARLOS
+    //pantalla principal de iniciar sesion
+    <string name="LogoApp">HelpMe</string>
+    <string name="LogoApp2"><font color="#FFFFA500">HELP</font><font color="#ffffff">me</font></string>
+    <string name="Welcome">BIENVENIDO</string>
+    <string name="btnLogin">Iniciar Sesion</string>
+    <string name="password">contraseña</string>
+    <string name="Newlogin">Registrate</string>
+    <string name="recoverpassword">¿Has olvidado tu contraseña?</string>
+
+    //segunda pantalla elegi
+    <string name="register">REGISTRO</string>>
+    <string name="email2">email</string>
+    <string name="repitcontraseña">repite contraseña</string>
+    <string name="btnRegister">Continuar</string>
+    <string name="Chkbtnstudent">Estudiante</string>
+    <string name="Chkbtnadviser">Asesor</string>
+
+    //Tercera pantalla registro estudiante
+    <string name="titleWelcomStudent"><font color="#FF000000">Ahora, hagamos que te registres como </font><font color="#FFFFA500">Estudiante</font></string>
+    <string name="codeStudent">Ingrese codigo</string>
+    <string name="nameStudent">Nombre estudiante</string>
+    <string name="lastnameStudent">Apellidos estudiante</string>
+    <string name="passwordStudent">Contraseña</string>
+    <string name="welconCode">Nosotros hemos enviado un código a tu correo o numero.</string>
+
+    //Pantalla personalized welcome student
+    <string name="personalizedWelcomeStudentTitle">Estas a un paso de disfrutar de la mejor asesoría.</string>
+    <string name="personalizedWelcomeStudent">Ayúdanos a personalizar tu experiencia para que se ajuste a tus necesidades académicas.</string>
+    <string name="nameInstitution">Institucion educativa</string>
+    <string name="nameProgramaAcademico">Programa academico</string>
+    <string name="levelEducation">Nivel de estudios</string>
+    <string name="btnFollowing">Siguiente</string>
+
+    //Pantalla Intereses academicos
+    <string name="interesAcademicos">Selecciona tus intereses Académicos</string>
+    <string name="subInteresAcademic">¡Estamos casi listos!</string>
+    <string name="matematica">Matematica</string>
+    <string name="tecnology">Tecnologia</string>
+    <string name="psicologia">Psicologia</string>
+    <string name="educFinanciera">Educacion Finaciera</string>
+    <string name="history">Historia</string>
+    <string name="programacion">Programacion</string>
+    <string name="siguiente">Siguiente</string>
+
+    //Finde registro academico estudiante
+    <string name="finishRegisterStudent">!Vamos a brillar en tu camino académico¡</string>
+    <string name="btnFinish">Finalizar</string>
+
+    //HOME PAGE
+    <string name="searchHomePage">Buscar...</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+</resources>

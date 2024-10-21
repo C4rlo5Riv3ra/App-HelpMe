@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".SecondFragment">
+
+
+    <TextView
+        android:id="@+id/titleSTUDENTADVISER"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:width="345dp"
+        android:text="@string/txtquestionStudentAdviser"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.31" />
+
+    <Button
+        android:id="@+id/bntSTUDENT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:width="250dp"
+        android:height="58dp"
+        android:text="@string/btnStudent"
+        android:textSize="20sp"
+        android:backgroundTint="@color/black"
+        app:layout_constraintBottom_toTopOf="@id/bntADVISER"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleSTUDENTADVISER" />
+
+    <Button
+        android:id="@+id/bntADVISER"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:width="250dp"
+        android:height="58dp"
+        android:text="@string/btnAdviser"
+        android:textSize="20sp"
+        android:backgroundTint="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bntSTUDENT" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

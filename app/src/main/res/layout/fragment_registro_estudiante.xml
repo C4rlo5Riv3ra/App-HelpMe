@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".RegistroEstudianteFragment">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:width="345dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/titleWelcomStudent"
+        android:textSize="28sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvSubTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:width="345dp"
+        android:text="@string/welconCode"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        android:layout_marginTop="10dp"/>
+
+    <EditText
+        android:id="@+id/etCodigo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:width="345dp"
+        android:inputType="number"
+        android:drawablePadding="10dp"
+        android:hint="@string/codeStudent"
+        android:padding="10dp"
+        android:textColor="@color/orange"
+        android:textColorHint="@color/gray"
+        android:layout_marginTop="35dp"
+        app:layout_constraintTop_toBottomOf="@id/tvSubTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintWidth_percent="0.9"/>
+
+    <EditText
+        android:id="@+id/etNombres"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:width="345dp"
+        android:drawablePadding="10dp"
+        android:hint="@string/nameStudent"
+        android:padding="10dp"
+        android:textColorHint="@color/gray"
+        android:layout_marginTop="25dp"
+        app:layout_constraintTop_toBottomOf="@id/etCodigo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintWidth_percent="0.9"/>
+
+    <EditText
+        android:id="@+id/etApellidos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:width="345dp"
+        android:hint="@string/lastnameStudent"
+        android:padding="10dp"
+        android:drawablePadding="10dp"
+        android:textColorHint="@color/gray"
+        android:layout_marginTop="25dp"
+        app:layout_constraintTop_toBottomOf="@id/etNombres"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintWidth_percent="0.9"/>
+
+    <EditText
+        android:id="@+id/etDocumento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:width="345dp"
+        android:inputType="number"
+        android:hint="@string/txtIdentity"
+        android:padding="10dp"
+        android:textColorHint="@color/gray"
+        android:layout_marginTop="25dp"
+        app:layout_constraintTop_toBottomOf="@id/etApellidos"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintWidth_percent="0.9"/>
+
+    <EditText
+        android:id="@+id/etPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:width="345dp"
+        android:inputType="textPassword"
+        android:hint="@string/passwordStudent"
+        android:padding="10dp"
+        android:drawablePadding="10dp"
+        android:textColorHint="@color/gray"
+        android:layout_marginTop="25dp"
+        app:layout_constraintTop_toBottomOf="@id/etDocumento"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintWidth_percent="0.9"/>
+
+    <EditText
+        android:id="@+id/etFechaNacimiento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:width="345dp"
+        android:inputType="date"
+        android:hint="@string/txtbirthdate"
+        android:padding="10dp"
+        android:drawablePadding="10dp"
+        android:textColor="@color/orange"
+        android:textColorHint="@color/gray"
+        android:layout_marginTop="25dp"
+        app:layout_constraintTop_toBottomOf="@id/etPassword"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintWidth_percent="0.9"/>
+
+    <CheckBox
+        android:id="@+id/cbRecibirCorreos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:width="345dp"
+        android:text="@string/acceptNotification"
+        android:layout_marginTop="20dp"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/etFechaNacimiento"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <CheckBox
+        android:id="@+id/cbAceptarTerminos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:width="345dp"
+        android:text="@string/privacyPolicy"
+        android:layout_marginTop="20dp"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/cbRecibirCorreos"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/btnCrearCuenta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:width="250dp"
+        android:text="@string/btncreateAccount"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_marginTop="45dp"
+        android:backgroundTint="@color/mostaza"
+        android:textColor="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@id/cbAceptarTerminos"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
