@@ -52,7 +52,7 @@
     <string name="nameStudent">Nombre estudiante</string>
     <string name="lastnameStudent">Apellidos estudiante</string>
     <string name="passwordStudent">Contraseña</string>
-    <string name="welconCode">Nosotros hemos enviado un código a tu correo o numero.</string>
+    <string name="welconCode">Nosotros hemos enviado un código a tu correo o numero: %1$s</string>
 
     //Pantalla personalized welcome student
     <string name="personalizedWelcomeStudentTitle">Estas a un paso de disfrutar de la mejor asesoría.</string>

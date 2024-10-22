@@ -30,11 +30,21 @@ public class FirstFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
 
+        binding.btnContinue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String email = binding.edtEmail.getText().toString();
+                NavHostFragment.findNavController(FirstFragment.this)
+                        .navigate(R.id.action_FirstFragment_to_SecondFragment);
+            }
+        });
 
+        /*
         binding.btnContinue.setOnClickListener(v -> //boton por configurar con FirstFragmentDirection
                 NavHostFragment.findNavController(FirstFragment.this)
                         .navigate(R.id.action_FirstFragment_to_SecondFragment)
         );
+         */
 
 
     }

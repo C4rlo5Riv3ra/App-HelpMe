@@ -30,10 +30,21 @@ public class SecondFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
 
-        binding.bntADVISER.setOnClickListener(v ->  //Btn asignado temporlamente para ver funcionaniento entre Fist y Second Fragment
+        binding.bntSTUDENT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 NavHostFragment.findNavController(SecondFragment.this)
-                        .navigate(R.id.action_SecondFragment_to_FirstFragment)
-        );
+                        .navigate(R.id.action_SecondFragment_to_registroEstudianteFragment);
+            }
+        });
+
+        binding.bntADVISER.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavHostFragment.findNavController(SecondFragment.this)
+                        .navigate(R.id.action_SecondFragment_to_registroAsesorFragment);
+            }
+        });
 
 
 
