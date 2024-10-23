@@ -34,17 +34,12 @@ public class FirstFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 String email = binding.edtEmail.getText().toString();
-                NavHostFragment.findNavController(FirstFragment.this)
-                        .navigate(R.id.action_FirstFragment_to_SecondFragment);
+                FirstFragmentDirections.ActionFirstFragmentToSecondFragment action =
+                        FirstFragmentDirections.actionFirstFragmentToSecondFragment(email);
+                NavHostFragment.findNavController(FirstFragment.this).navigate(action);
+
             }
         });
-
-        /*
-        binding.btnContinue.setOnClickListener(v -> //boton por configurar con FirstFragmentDirection
-                NavHostFragment.findNavController(FirstFragment.this)
-                        .navigate(R.id.action_FirstFragment_to_SecondFragment)
-        );
-         */
 
 
     }

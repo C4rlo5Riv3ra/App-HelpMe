@@ -29,20 +29,25 @@ public class SecondFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        String txtemail = SecondFragmentArgs.fromBundle(getArguments()).getArgEmail();
+
 
         binding.bntSTUDENT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(SecondFragment.this)
-                        .navigate(R.id.action_SecondFragment_to_registroEstudianteFragment);
+                SecondFragmentDirections.ActionSecondFragmentToRegistroEstudianteFragment action =
+                        SecondFragmentDirections.actionSecondFragmentToRegistroEstudianteFragment(txtemail);
+                NavHostFragment.findNavController(SecondFragment.this).navigate(action);
+
             }
         });
 
         binding.bntADVISER.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(SecondFragment.this)
-                        .navigate(R.id.action_SecondFragment_to_registroAsesorFragment);
+                SecondFragmentDirections.ActionSecondFragmentToRegistroAsesorFragment action =
+                        SecondFragmentDirections.actionSecondFragmentToRegistroAsesorFragment(txtemail);
+                NavHostFragment.findNavController(SecondFragment.this).navigate(action);
             }
         });
 

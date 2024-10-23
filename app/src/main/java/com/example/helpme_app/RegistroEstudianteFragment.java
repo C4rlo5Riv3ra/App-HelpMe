@@ -2,11 +2,14 @@ package com.example.helpme_app;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.helpme_app.databinding.FragmentRegistroEstudianteBinding;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +17,7 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class RegistroEstudianteFragment extends Fragment {
+    private FragmentRegistroEstudianteBinding binding;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -59,6 +63,20 @@ public class RegistroEstudianteFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_registro_estudiante, container, false);
+        //return inflater.inflate(R.layout.fragment_registro_estudiante, container, false);
+        binding = FragmentRegistroEstudianteBinding.inflate(inflater, container, false);
+        return binding.getRoot();
     }
+
+    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        String email = RegistroAsesorFragmentArgs.fromBundle(getArguments()).getArgEmail();
+        String emailFormat = getString(R.string.welconCode, email);
+        binding.tvSubTitle.setText(emailFormat);
+
+    }
+
+
+
 }
