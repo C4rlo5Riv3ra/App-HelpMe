@@ -4,6 +4,7 @@
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
@@ -37,6 +38,7 @@
     <string name="password">contraseña</string>
     <string name="Newlogin">Registrate</string>
     <string name="recoverpassword">¿Has olvidado tu contraseña?</string>
+    <string name="NewRegistroLogin">¿No estas registrado? <font color="#F6A700"><b>REGISTRATE</b></font> </string>
 
     //segunda pantalla elegi
     <string name="register">REGISTRO</string>>
@@ -79,8 +81,5 @@
 
     //HOME PAGE
     <string name="searchHomePage">Buscar...</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
 
 </resources>

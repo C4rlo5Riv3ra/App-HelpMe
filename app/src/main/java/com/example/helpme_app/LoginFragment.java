@@ -2,22 +2,18 @@ package com.example.helpme_app;
 
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.helpme_app.databinding.FragmentRegistroAsesorBinding;
-
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link RegistroAsesorFragment#newInstance} factory method to
+ * Use the {@link LoginFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class RegistroAsesorFragment extends Fragment {
-    private FragmentRegistroAsesorBinding binding;
+public class LoginFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -28,7 +24,7 @@ public class RegistroAsesorFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public RegistroAsesorFragment() {
+    public LoginFragment() {
         // Required empty public constructor
     }
 
@@ -38,11 +34,11 @@ public class RegistroAsesorFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment RegistroAsesorFragment.
+     * @return A new instance of fragment LoginFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static RegistroAsesorFragment newInstance(String param1, String param2) {
-        RegistroAsesorFragment fragment = new RegistroAsesorFragment();
+    public static LoginFragment newInstance(String param1, String param2) {
+        LoginFragment fragment = new LoginFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -62,19 +58,7 @@ public class RegistroAsesorFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        binding = FragmentRegistroAsesorBinding.inflate(inflater, container, false);
-        return  binding.getRoot();
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_login, container, false);
     }
-
-    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-        String email = RegistroAsesorFragmentArgs.fromBundle(getArguments()).getArgEmail();
-        String emailFormat = getString(R.string.welconCode, email);
-        binding.tvSubTitle.setText(emailFormat);
-
-    }
-
-
 }
