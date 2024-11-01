@@ -58,6 +58,7 @@
         android:layout_marginTop="50dp"
         android:width="265dp"
         android:height="58dp"
+        android:textColor="@color/white"
         android:text="@string/btnNext"
         android:backgroundTint="@color/secondary"
         android:textSize="20sp"

@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".RegistroEstudianteFragment">
 
     <TextView
@@ -142,6 +147,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:width="345dp"
+        android:height="58dp"
         android:text="@string/privacyPolicy"
         android:layout_marginTop="20dp"
         android:textSize="16sp"
@@ -153,16 +159,19 @@
         android:id="@+id/btnCrearCuenta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:width="250dp"
-        android:text="@string/btncreateAccount"
-        android:textStyle="bold"
-        android:textSize="18sp"
         android:layout_marginTop="45dp"
+        android:layout_marginBottom="35dp"
+        android:width="250dp"
+        android:height="58dp"
         android:backgroundTint="@color/mostaza"
+        android:text="@string/btncreateAccount"
         android:textColor="@android:color/white"
-        app:layout_constraintTop_toBottomOf="@id/cbAceptarTerminos"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
+        app:layout_constraintTop_toBottomOf="@id/cbAceptarTerminos" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>

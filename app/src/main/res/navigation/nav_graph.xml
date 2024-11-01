@@ -18,6 +18,8 @@
             android:name="ArgNewUser"
             app:argType="string" />
     </fragment>
+
+
     <fragment
         android:id="@+id/SecondFragment"
         android:name="com.example.helpme_app.SecondFragment"
@@ -37,6 +39,8 @@
             android:name="ArgEmail"
             app:argType="string" />
     </fragment>
+
+
     <fragment
         android:id="@+id/registroAsesorFragment"
         android:name="com.example.helpme_app.RegistroAsesorFragment"
@@ -55,6 +59,7 @@
             android:name="ArgEmail"
             app:argType="string" />
     </fragment>
+
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.helpme_app.LoginFragment"
@@ -63,5 +68,41 @@
         <action
             android:id="@+id/action_loginFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_inicioFragment"
+            app:destination="@id/inicioFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/inicioFragment"
+        android:name="com.example.helpme_app.InicioFragment"
+        android:label="fragment_inicio"
+        tools:layout="@layout/fragment_inicio" >
+        <action
+            android:id="@+id/action_inicioFragment_to_perfilFragment"
+            app:destination="@id/perfilFragment" />
+        <action
+            android:id="@+id/action_inicioFragment_to_comprasFragment"
+            app:destination="@id/comprasFragment" />
+        <action
+            android:id="@+id/action_inicioFragment_to_chatFragment"
+            app:destination="@id/chatFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/perfilFragment"
+        android:name="com.example.helpme_app.PerfilFragment"
+        android:label="fragment_perfil"
+        tools:layout="@layout/fragment_perfil" />
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.example.helpme_app.ChatFragment"
+        android:label="fragment_chat"
+        tools:layout="@layout/fragment_chat" />
+    <fragment
+        android:id="@+id/comprasFragment"
+        android:name="com.example.helpme_app.ComprasFragment"
+        android:label="fragment_compras"
+        tools:layout="@layout/fragment_compras" />
+
 </navigation>
