@@ -49,8 +49,8 @@ public class InicioFragment extends Fragment {
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
             int itemId = item.getItemId();
 
-            if (itemId == R.id.inicioFragment) {
-                replaceFragment(new InicioFragment());
+            if (itemId == R.id.home) {
+                replaceFragment(new HomeFragment());
                 return true;
             } else if (itemId == R.id.carrito) {
                 replaceFragment(new ComprasFragment());
