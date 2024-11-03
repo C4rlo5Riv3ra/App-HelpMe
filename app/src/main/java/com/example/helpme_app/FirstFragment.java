@@ -23,12 +23,10 @@ public class FirstFragment extends Fragment {
 
         binding = FragmentFirstBinding.inflate(inflater, container, false);
         return binding.getRoot();
-
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
 
         binding.btnContinue.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,11 +35,8 @@ public class FirstFragment extends Fragment {
                 FirstFragmentDirections.ActionFirstFragmentToSecondFragment action =
                         FirstFragmentDirections.actionFirstFragmentToSecondFragment(email);
                 NavHostFragment.findNavController(FirstFragment.this).navigate(action);
-
             }
         });
-
-
     }
 
     @Override
@@ -49,5 +44,4 @@ public class FirstFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
-
 }
