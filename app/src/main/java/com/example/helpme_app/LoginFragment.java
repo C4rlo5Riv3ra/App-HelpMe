@@ -91,6 +91,7 @@ public class LoginFragment extends Fragment {
                 LoginFragmentDirections.ActionLoginFragmentToInicioFragment action =
                         LoginFragmentDirections.actionLoginFragmentToInicioFragment(NewUser);
                 NavHostFragment.findNavController(LoginFragment.this).navigate(action);
+
             }
         });
     }

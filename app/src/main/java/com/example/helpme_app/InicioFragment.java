@@ -45,6 +45,10 @@ public class InicioFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentInicioBinding.inflate(inflater, container, false);
 
+        if (savedInstanceState == null) {
+            replaceFragment(new HomeFragment());
+            binding.bottomNavigationView.setSelectedItemId(R.id.home);
+        }
 
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
             int itemId = item.getItemId();
