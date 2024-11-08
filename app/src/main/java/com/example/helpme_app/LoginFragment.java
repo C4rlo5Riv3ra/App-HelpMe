@@ -10,12 +10,9 @@ import androidx.navigation.fragment.NavHostFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.example.helpme_app.databinding.FragmentLoginBinding;
 import com.example.helpme_app.databinding.FragmentRegistroAsesorBinding;
-
-import java.util.HashMap;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,8 +21,6 @@ import java.util.HashMap;
  */
 public class LoginFragment extends Fragment {
     private FragmentLoginBinding binding;
-    private HashMap<String, String> userCredentials;
-
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -76,10 +71,6 @@ public class LoginFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        userCredentials = new HashMap<>();
-        userCredentials.put("Alumno1", "Alumno2");
-        userCredentials.put("Asesor2", "Asesor2");
-
         binding.txtNewLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -88,32 +79,21 @@ public class LoginFragment extends Fragment {
                 LoginFragmentDirections.ActionLoginFragmentToFirstFragment action =
                         LoginFragmentDirections.actionLoginFragmentToFirstFragment(NewUser);
                 NavHostFragment.findNavController(LoginFragment.this).navigate(action);
+
+
             }
         });
 
         binding.btnIniciarSesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String username = binding.edtUserName.getText().toString();
-                String password = binding.edtPassword.getText().toString();
-
-                if (authenticate(username, password)) {
-                    Toast.makeText(getContext(), "¡Bienvenido, " + username + "!", Toast.LENGTH_SHORT).show();
-                    // Navegar a InicioFragment si el login es correcto
-                    LoginFragmentDirections.ActionLoginFragmentToInicioFragment action =
-                            LoginFragmentDirections.actionLoginFragmentToInicioFragment(username);
-                    NavHostFragment.findNavController(LoginFragment.this).navigate(action);
-                } else {
-                    Toast.makeText(getContext(), "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show();
-                }
+                String NewUser = binding.btnIniciarSesion.getText().toString();
+                LoginFragmentDirections.ActionLoginFragmentToInicioFragment action =
+                        LoginFragmentDirections.actionLoginFragmentToInicioFragment(NewUser);
+                NavHostFragment.findNavController(LoginFragment.this).navigate(action);
 
             }
         });
-
-    }
-
-    private boolean authenticate(String username, String password) {
-        return userCredentials.containsKey(username) && userCredentials.get(username).equals(password);
     }
 
 }
