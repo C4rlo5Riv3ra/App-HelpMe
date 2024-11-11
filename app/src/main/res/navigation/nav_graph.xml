@@ -110,6 +110,6 @@
         android:id="@+id/comprasFragment"
         android:name="com.example.helpme_app.FragmentAsesoria"
         android:label="fragment_compras"
-        tools:layout="@layout/fragment_asesoria" />
+        tools:layout="@layout/fragment_compras" />
 
 </navigation>
