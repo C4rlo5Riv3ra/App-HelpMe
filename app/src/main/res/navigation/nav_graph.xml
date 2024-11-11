@@ -96,7 +96,11 @@
         android:id="@+id/perfilFragment"
         android:name="com.example.helpme_app.PerfilFragment"
         android:label="fragment_perfil"
-        tools:layout="@layout/fragment_perfil" />
+        tools:layout="@layout/fragment_perfil">
+        <argument
+            android:name="ArgUserName"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/chatFragment"
         android:name="com.example.helpme_app.ChatFragment"
@@ -104,8 +108,8 @@
         tools:layout="@layout/fragment_chat" />
     <fragment
         android:id="@+id/comprasFragment"
-        android:name="com.example.helpme_app.ComprasFragment"
+        android:name="com.example.helpme_app.FragmentAsesoria"
         android:label="fragment_compras"
-        tools:layout="@layout/fragment_compras" />
+        tools:layout="@layout/fragment_asesoria" />
 
 </navigation>

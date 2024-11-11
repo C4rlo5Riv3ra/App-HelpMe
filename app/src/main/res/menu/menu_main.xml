@@ -7,9 +7,9 @@
         android:icon="@drawable/baseline_home_24"
         android:title="Home"/>
 
-    <item android:id="@+id/carrito"
-        android:icon="@drawable/baseline_add_shopping_cart_24"
-        android:title="Carrito" />
+    <item android:id="@+id/asesorias"
+        android:icon="@drawable/icon_searchase"
+        android:title="Asesorias" />
 
     <item android:id="@+id/chat"
         android:icon="@drawable/baseline_chat_24"
