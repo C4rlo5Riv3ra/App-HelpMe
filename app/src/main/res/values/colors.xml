@@ -12,5 +12,12 @@
     <color name="gray">#FF808080</color>
     <color name="gray2">#FF808080</color>
     <color name="BackgroundMensaje">#4E3535</color>
+    <!-- colors.xml -->
+    <color name="primary_blue">#3B82F6</color> <!-- Color azul para botones de "Estudiante" y "Ingeniería de Sistemas" -->
+    <color name="token_red">#FF4A4A</color> <!-- Color rojo para Tokens -->
+    <color name="soles_green">#4CAF50</color> <!-- Color verde para Soles -->
+    <color name="text_gray">#888888</color> <!-- Color gris para descripciones y fecha -->
+    <color name="background_light">#F5F5F5</color> <!-- Color de fondo general -->
+
 
 </resources>

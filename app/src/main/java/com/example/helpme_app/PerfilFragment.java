@@ -61,4 +61,11 @@ public class PerfilFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_perfil, container, false);
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        // Muestra la barra de navegación inferior
+        ((MainActivity) requireActivity()).findViewById(R.id.bottomNavigationView).setVisibility(View.VISIBLE);
+    }
 }

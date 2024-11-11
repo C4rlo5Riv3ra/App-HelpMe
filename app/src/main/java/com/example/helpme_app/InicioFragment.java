@@ -56,7 +56,7 @@ public class InicioFragment extends Fragment {
             if (itemId == R.id.home) {
                 replaceFragment(new HomeFragment());
                 return true;
-            } else if (itemId == R.id.carrito) {
+            } else if (itemId == R.id.asesorias) {
                 replaceFragment(new ComprasFragment());
                 return true;
             } else if (itemId == R.id.chat) {
@@ -78,4 +78,5 @@ public class InicioFragment extends Fragment {
         fragmentTransaction.replace(R.id.frame_layout, fragment);
         fragmentTransaction.commit();
     }
+
 }
