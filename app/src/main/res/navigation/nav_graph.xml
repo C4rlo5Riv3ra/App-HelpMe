@@ -44,7 +44,7 @@
     <fragment
         android:id="@+id/registroAsesorFragment"
         android:name="com.example.helpme_app.RegistroAsesorFragment"
-        android:label="fragment_registro_asesor"
+        android:label="@string/fragment_registro_asesor"
         tools:layout="@layout/fragment_registro_asesor" >
         <argument
             android:name="ArgEmail"
@@ -79,7 +79,7 @@
     <fragment
         android:id="@+id/inicioFragment"
         android:name="com.example.helpme_app.InicioFragment"
-        android:label="fragment_inicio"
+        android:label="Home"
         tools:layout="@layout/fragment_inicio" >
         <action
             android:id="@+id/action_inicioFragment_to_perfilFragment"
@@ -111,7 +111,7 @@
         tools:layout="@layout/fragment_chat" />
     <fragment
         android:id="@+id/comprasFragment"
-        android:name="com.example.helpme_app.FragmentAsesoria"
+        android:name="com.example.helpme_app.ComprasFragment"
         android:label="fragment_compras"
         tools:layout="@layout/fragment_compras" />
     <fragment
