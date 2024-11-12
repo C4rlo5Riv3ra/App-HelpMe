@@ -1,11 +1,13 @@
 package com.example.helpme_app;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
+
 import androidx.fragment.app.Fragment;
+import com.example.helpme_app.databinding.FragmentAcademicInterestsBinding;
 
 public class AcademicInterestsFragment extends Fragment {
 
@@ -14,8 +16,8 @@ public class AcademicInterestsFragment extends Fragment {
 
     private String mParam1;
     private String mParam2;
-
     private boolean[] interesesSeleccionadosEstado = new boolean[9];
+    private FragmentAcademicInterestsBinding binding;
 
     public AcademicInterestsFragment() {
     }
@@ -40,48 +42,38 @@ public class AcademicInterestsFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_academic_interests, container, false);
+        // Inflamos el binding
+        binding = FragmentAcademicInterestsBinding.inflate(inflater, container, false);
+        return binding.getRoot();
+    }
 
-        TextView interesMatematicas = view.findViewById(R.id.interes_matematicas);
-        TextView interesTecnologia = view.findViewById(R.id.interes_tecnologia);
-        TextView interesProgramacion = view.findViewById(R.id.interes_programacion);
-        TextView interesPsicologia = view.findViewById(R.id.interes_psicologia);
-        TextView interesEducacionFinanciera = view.findViewById(R.id.interes_educacion_financiera);
-        TextView interesDesarrolloPersonal = view.findViewById(R.id.interes_desarrollo_personal);
-        TextView interesHistoria = view.findViewById(R.id.interes_historia);
-        TextView interesIdiomas = view.findViewById(R.id.interes_idiomas);
-        TextView interesIngles = view.findViewById(R.id.interes_ingles);
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
-        configureInterestToggle(interesMatematicas, 0);
-        configureInterestToggle(interesTecnologia, 1);
-        configureInterestToggle(interesProgramacion, 2);
-        configureInterestToggle(interesPsicologia, 3);
-        configureInterestToggle(interesEducacionFinanciera, 4);
-        configureInterestToggle(interesDesarrolloPersonal, 5);
-        configureInterestToggle(interesHistoria, 6);
-        configureInterestToggle(interesIdiomas, 7);
-        configureInterestToggle(interesIngles, 8);
+        configureInterestToggle(binding.interesMatematicas, 0);
+        configureInterestToggle(binding.interesTecnologia, 1);
+        configureInterestToggle(binding.interesProgramacion, 2);
+        configureInterestToggle(binding.interesPsicologia, 3);
+        configureInterestToggle(binding.interesEducacionFinanciera, 4);
+        configureInterestToggle(binding.interesDesarrolloPersonal, 5);
+        configureInterestToggle(binding.interesHistoria, 6);
+        configureInterestToggle(binding.interesIdiomas, 7);
+        configureInterestToggle(binding.interesIngles, 8);
 
-        Button btnSiguiente = view.findViewById(R.id.btnSiguiente);
-        btnSiguiente.setOnClickListener(v -> {
-
-            // Aquí podrías enviar los intereses seleccionados a otro fragmento o actividad
+        binding.btnSiguiente.setOnClickListener(v -> {
             StringBuilder seleccionados = new StringBuilder("Intereses seleccionados:\n");
             for (int i = 0; i < interesesSeleccionadosEstado.length; i++) {
                 if (interesesSeleccionadosEstado[i]) {
                     seleccionados.append(getInterestName(i)).append("\n");
                 }
             }
-
-            // Puedes hacer una acción con esta cadena, por ejemplo, un Toast o pasar a otro fragmento
+            // Puedes hacer algo con la cadena de intereses seleccionados, como un Toast o navegar a otro fragmento
         });
-
-        return view;
     }
 
     private void configureInterestToggle(TextView interes, int index) {
         interes.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.baseline_check_box_outline_blank_24, 0);
-
         interes.setOnClickListener(view -> {
             if (interesesSeleccionadosEstado[index]) {
                 interes.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.baseline_check_box_outline_blank_24, 0);
@@ -106,5 +98,12 @@ public class AcademicInterestsFragment extends Fragment {
             case 8: return "Inglés";
             default: return "Desconocido";
         }
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        // Limpiamos el binding para evitar fugas de memoria
+        binding = null;
     }
 }
