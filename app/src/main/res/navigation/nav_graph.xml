@@ -58,6 +58,9 @@
         <argument
             android:name="ArgEmail"
             app:argType="string" />
+        <action
+            android:id="@+id/action_registroEstudianteFragment_to_academicInterestsFragment"
+            app:destination="@id/academicInterestsFragment" />
     </fragment>
 
     <fragment
@@ -111,5 +114,14 @@
         android:name="com.example.helpme_app.FragmentAsesoria"
         android:label="fragment_compras"
         tools:layout="@layout/fragment_compras" />
+    <fragment
+        android:id="@+id/academicInterestsFragment"
+        android:name="com.example.helpme_app.AcademicInterestsFragment"
+        android:label="fragment_academic_interests"
+        tools:layout="@layout/fragment_academic_interests" >
+        <action
+            android:id="@+id/action_academicInterestsFragment_to_inicioFragment"
+            app:destination="@id/inicioFragment" />
+    </fragment>
 
 </navigation>

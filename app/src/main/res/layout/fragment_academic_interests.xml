@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".AcademicInterestsFragment">
+
+    <TextView
+        android:id="@+id/titulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Selecciona tus intereses Académicos"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf=""
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/subtitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="¡Estamos casi listos!"
+        android:textSize="14sp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/titulo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/interesesContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/subtitulo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/interes_matematicas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Matemáticas"
+            android:drawableEnd="@drawable/baseline_check_box_outline_blank_24"
+            android:drawablePadding="8dp"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:background="?android:attr/selectableItemBackground" />
+
+        <TextView
+            android:id="@+id/interes_tecnologia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tecnología"
+            android:drawableEnd="@drawable/baseline_check_box_outline_blank_24"
+            android:drawablePadding="8dp"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:background="?android:attr/selectableItemBackground" />
+
+        <TextView
+            android:id="@+id/interes_programacion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Programación"
+            android:drawableEnd="@drawable/baseline_check_box_outline_blank_24"
+            android:drawablePadding="8dp"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:background="?android:attr/selectableItemBackground" />
+
+        <TextView
+            android:id="@+id/interes_psicologia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Psicología"
+            android:drawableEnd="@drawable/baseline_check_box_outline_blank_24"
+            android:drawablePadding="8dp"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:background="?android:attr/selectableItemBackground" />
+
+        <TextView
+            android:id="@+id/interes_educacion_financiera"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Educación Financiera"
+            android:drawableEnd="@drawable/baseline_check_box_outline_blank_24"
+            android:drawablePadding="8dp"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:background="?android:attr/selectableItemBackground" />
+
+        <TextView
+            android:id="@+id/interes_desarrollo_personal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Desarrollo Personal"
+            android:drawableEnd="@drawable/baseline_check_box_outline_blank_24"
+            android:drawablePadding="8dp"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:background="?android:attr/selectableItemBackground" />
+
+        <TextView
+            android:id="@+id/interes_historia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Historia"
+            android:drawableEnd="@drawable/baseline_check_box_outline_blank_24"
+            android:drawablePadding="8dp"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:background="?android:attr/selectableItemBackground" />
+
+        <TextView
+            android:id="@+id/interes_idiomas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Idiomas"
+            android:drawableEnd="@drawable/baseline_check_box_outline_blank_24"
+            android:drawablePadding="8dp"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:background="?android:attr/selectableItemBackground" />
+
+        <TextView
+            android:id="@+id/interes_ingles"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Inglés"
+            android:drawableEnd="@drawable/baseline_check_box_outline_blank_24"
+            android:drawablePadding="8dp"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:background="?android:attr/selectableItemBackground" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnSiguiente"
+        android:layout_width="250dp"
+        android:layout_height="55dp"
+        android:text="Siguiente"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#000000"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@id/interesesContainer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
