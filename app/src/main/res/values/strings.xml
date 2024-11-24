@@ -84,4 +84,15 @@
     <string name="searchHomePage">Buscar...</string>
     <string name="btnRegistrateLogin">Registrate</string>
 
+
+    //perfil
+    <string name="descripcion"> Frase para poner en descripción,Frase para poner en descripción</string>
+    <string name="tokens">100 TOKENS</string>
+    <string name="soles">500 Soles</string>
+    <string name="Uni">UNIVERSIDAD SEÑOR DE SIPAN</string>
+    <string name="editperfil">editar perfil</string>
+    <string name="escuela">INGENIERIA DE SISTEMAS</string>
+
+
+
 </resources>
