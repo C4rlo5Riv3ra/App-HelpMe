@@ -9,15 +9,17 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 import com.example.helpme_app.databinding.FragmentAcademicInterestsBinding;
 
-public class AcademicInterestsFragment extends Fragment {
+import com.example.helpme_app.databinding.FragmentAcademicInterestsBinding;
+import com.example.helpme_app.databinding.FragmentLoginBinding;
 
+public class AcademicInterestsFragment extends Fragment {
+    private FragmentAcademicInterestsBinding binding;
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
     private String mParam1;
     private String mParam2;
     private boolean[] interesesSeleccionadosEstado = new boolean[9];
-    private FragmentAcademicInterestsBinding binding;
 
     public AcademicInterestsFragment() {
     }

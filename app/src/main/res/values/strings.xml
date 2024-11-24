@@ -30,10 +30,7 @@
     <string name="privacyPolicy">Acepto recibir correos electronicos de actualizaciones de Helpme!</string>
     <string name="btncreateAccount">Crear Cuenta</string>
 
-    //JUAN CARLOS
     //pantalla principal de iniciar sesion
-    <string name="LogoApp">HelpMe</string>
-    <string name="LogoApp2"><font color="#FFFFA500">HELP</font><font color="#ffffff">me</font></string>
     <string name="Welcome">BIENVENIDO</string>
     <string name="btnLogin">Iniciar Sesion</string>
     <string name="password">Contraseña</string>
@@ -93,6 +90,5 @@
     <string name="editperfil">editar perfil</string>
     <string name="escuela">INGENIERIA DE SISTEMAS</string>
     <string name="PoliticasRegistro">Al continuar, acepto las condiciones de Helpme!. Políticas de privacidad y Términos de Uso</string>
-
 
 </resources>
