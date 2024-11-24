@@ -104,11 +104,9 @@ public class LoginFragment extends Fragment {
                 } else {
                     Toast.makeText(getContext(), "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show();
                 }
-
             }
         });
     }
-
     // Método para verificar las credenciales
     private boolean authenticate(String username, String password) {
         return userCredentials.containsKey(username) && userCredentials.get(username).equals(password);
