@@ -47,7 +47,7 @@
     <EditText
         android:id="@+id/etInstitucionEducativa"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:width="345dp"
         android:drawablePadding="10dp"
         android:background="@drawable/editborderblack"
@@ -62,7 +62,7 @@
     <EditText
         android:id="@+id/etCarrera"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:width="345dp"
         android:drawablePadding="10dp"
         android:background="@drawable/editborderblack"
@@ -77,7 +77,7 @@
     <EditText
         android:id="@+id/etNivelEstudios"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:width="345dp"
         android:drawablePadding="10dp"
         android:background="@drawable/editborderblack"
