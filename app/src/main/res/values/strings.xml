@@ -36,15 +36,15 @@
     <string name="LogoApp2"><font color="#FFFFA500">HELP</font><font color="#ffffff">me</font></string>
     <string name="Welcome">BIENVENIDO</string>
     <string name="btnLogin">Iniciar Sesion</string>
-    <string name="password">contraseña</string>
+    <string name="password">Contraseña</string>
     <string name="Newlogin">Registrate</string>
     <string name="recoverpassword">¿Has olvidado tu contraseña?</string>
-    <string name="NewRegistroLogin">¿No estas registrado? <font color="#F6A700"><b>REGISTRATE</b></font> </string>
+    <string name="NewRegistroLogin">¿No estas registrado?</string>
 
     //segunda pantalla elegi
     <string name="register">REGISTRO</string>>
-    <string name="email2">email</string>
-    <string name="repitcontraseña">repite contraseña</string>
+    <string name="email2">Email</string>
+    <string name="repitcontraseña">Repite contraseña</string>
     <string name="btnRegister">Continuar</string>
     <string name="Chkbtnstudent">Estudiante</string>
     <string name="Chkbtnadviser">Asesor</string>
@@ -82,6 +82,7 @@
 
     //HOME PAGE
     <string name="searchHomePage">Buscar...</string>
+    <string name="btnRegistrateLogin">Registrate</string>
 
 
     //perfil
