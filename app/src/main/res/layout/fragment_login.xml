@@ -13,7 +13,7 @@
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:padding="5dp"
-        android:src="@drawable/Logo_white"
+        android:src="@drawable/logo_white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
