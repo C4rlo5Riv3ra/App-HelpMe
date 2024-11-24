@@ -8,16 +8,12 @@
     android:background="@drawable/fondologin"
     tools:context=".LoginFragment">
 
-    <TextView
+    <ImageView
         android:id="@+id/txtHelpme"
-        android:layout_width="wrap_content"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
-        android:width="200dp"
-        android:background="@color/backgroundGeneral"
         android:padding="5dp"
-        android:text="@string/LogoApp2"
-        android:textAlignment="center"
-        android:textSize="36sp"
+        android:src="@drawable/Logo_white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
