@@ -4,6 +4,8 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavDirections;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -72,6 +74,14 @@ public class RegistroEstudianteFragment extends Fragment {
         String email = RegistroAsesorFragmentArgs.fromBundle(getArguments()).getArgEmail();
         String emailFormat = getString(R.string.welconCode, email);
         binding.tvSubTitle.setText(emailFormat);
+
+        binding.btnCrearCuenta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavDirections action = RegistroEstudianteFragmentDirections.actionRegistroEstudianteFragmentToAcademicInterestsFragment();
+                NavHostFragment.findNavController(RegistroEstudianteFragment.this).navigate(action);
+            }
+        });
 
     }
 
