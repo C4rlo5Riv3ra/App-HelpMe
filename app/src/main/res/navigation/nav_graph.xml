@@ -123,5 +123,15 @@
             android:id="@+id/action_academicInterestsFragment_to_inicioFragment"
             app:destination="@id/inicioFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/regionFragment"
+        android:name="com.example.helpme_app.RegionFragment"
+        android:label="fragment_region"
+        tools:layout="@layout/fragment_region" />
+    <fragment
+        android:id="@+id/pantalla_20Fragment"
+        android:name="com.example.helpme_app.Pantalla_20Fragment"
+        android:label="fragment_pantalla_20"
+        tools:layout="@layout/fragment_pantalla_20" />
 
 </navigation>
