@@ -1,30 +1,24 @@
 <resources>
-    <!-- General Application Strings -->
     <string name="app_name">HelpMe_App</string>
     <string name="action_settings">Settings</string>
-
-    <!-- Navigation Labels -->
+    <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-
-    <!-- Registro Asesor -->
     <string name="fragment_registro_asesor">Registro Asesor</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
-    <!-- Registro General -->
+
     <string name="txttitleRegister">Dejanos tu <font color="#F6A700"><b>correo</b></font> para empezar juntos</string>
-    <string name="txtcontidions">Al continuar acepto las condiciones de <b>Helpme!</b>. <font color="#E1AD01"><b><u>Politicas de Privacidad y Terminos de Uso</u></b></font></string>
-    <string name="txthintEmail">Ingrese su correo</string>
+    <string name="txtcontidions">Al continuar acepto las condiciones de <b>Helpme!</b>.<font color="#E1AD01"><b><u>Politicas de Privacidad y Terminos de Uso</u></b></font></string>
+    <string name="txthintEmail">ingrese su correo</string>
     <string name="btnNext">Siguiente</string>
 
-    <!-- Pregunta Estudiante o Asesor -->
     <string name="txtquestionStudentAdviser">¿Eres <font color="#F6A700"><b>Estudiante🎓</b></font> o <font color="#F6A700"><b>Asesor Academico 📚</b></font>? Elije una opcion para continuar</string>
     <string name="btnStudent">Estudiante</string>
     <string name="btnAdviser">Asesor Academico</string>
 
-    <!-- Registro Asesor -->
     <string name="txttitleAdviser">Ahora, hagamos que te registres como <font color="#F6A700"><b>Asesor</b></font></string>
     <string name="code">Codigo</string>
     <string name="txtName">Nombres</string>
@@ -36,7 +30,7 @@
     <string name="privacyPolicy">Acepto recibir correos electronicos de actualizaciones de Helpme!</string>
     <string name="btncreateAccount">Crear Cuenta</string>
 
-    <!-- Inicio de Sesión -->
+    //pantalla principal de iniciar sesion
     <string name="Welcome">BIENVENIDO</string>
     <string name="btnLogin">Iniciar Sesion</string>
     <string name="password">Contraseña</string>
@@ -44,15 +38,15 @@
     <string name="recoverpassword">¿Has olvidado tu contraseña?</string>
     <string name="NewRegistroLogin">¿No estas registrado?</string>
 
-    <!-- Registro - Segunda Pantalla -->
-    <string name="register">REGISTRO</string>
+    //segunda pantalla elegi
+    <string name="register">REGISTRO</string>>
     <string name="email2">Email</string>
     <string name="repitcontraseña">Repite contraseña</string>
     <string name="btnRegister">Continuar</string>
     <string name="Chkbtnstudent">Estudiante</string>
     <string name="Chkbtnadviser">Asesor</string>
 
-    <!-- Registro Estudiante -->
+    //Tercera pantalla registro estudiante
     <string name="titleWelcomStudent"><font color="#FF000000">Ahora, hagamos que te registres como </font><font color="#FFFFA500">Estudiante</font></string>
     <string name="codeStudent">Ingrese codigo</string>
     <string name="nameStudent">Nombre estudiante</string>
@@ -60,7 +54,7 @@
     <string name="passwordStudent">Contraseña</string>
     <string name="welconCode">Nosotros hemos enviado un código a tu correo o numero: <font color="#FFFFA500">%1$s</font></string>
 
-    <!-- Bienvenida Personalizada Estudiante -->
+    //Pantalla personalized welcome student
     <string name="personalizedWelcomeStudentTitle">Estas a un paso de disfrutar de la mejor asesoría.</string>
     <string name="personalizedWelcomeStudent">Ayúdanos a personalizar tu experiencia para que se ajuste a tus necesidades académicas.</string>
     <string name="nameInstitution">Institucion educativa</string>
@@ -68,7 +62,7 @@
     <string name="levelEducation">Nivel de estudios</string>
     <string name="btnFollowing">Siguiente</string>
 
-    <!-- Intereses Académicos -->
+    //Pantalla Intereses academicos
     <string name="interesAcademicos">Selecciona tus intereses Académicos</string>
     <string name="subInteresAcademic">¡Estamos casi listos!</string>
     <string name="matematica">Matematica</string>
@@ -79,15 +73,16 @@
     <string name="programacion">Programacion</string>
     <string name="siguiente">Siguiente</string>
 
-    <!-- Finalizar Registro Estudiante -->
+    //Finde registro academico estudiante
     <string name="finishRegisterStudent">!Vamos a brillar en tu camino académico¡</string>
     <string name="btnFinish">Finalizar</string>
 
-    <!-- Página Principal -->
+    //HOME PAGE
     <string name="searchHomePage">Buscar...</string>
     <string name="btnRegistrateLogin">Registrate</string>
 
-    <!-- Perfil -->
+
+    //perfil
     <string name="PoliticasRegistro">Al continuar, acepto las condiciones de Helpme!. Políticas de privacidad y Términos de Uso</string>
     <string name="descripcion"> Frase para poner en descripción,Frase para poner en descripción</string>
     <string name="tokens">100 TOKENS</string>
@@ -99,4 +94,7 @@
     <string name="description_ase1">ASESORIA 1</string>
     <string name="description_ase2">ASESORIA 2</string>
     <string name="description_ase3">ASESORIA 3</string>
+    <string name="mensajes">Mensajes</string>
+    <string name="economia">Economia</string>
+    <string name="NDEase">Asesorias(3)</string>
 </resources>
