@@ -9,6 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <!-- Imagen de perfil -->
         <ImageView
             android:id="@+id/profile_image"
@@ -43,7 +44,6 @@
             android:backgroundTint="#FFFFFF"
             android:textColor="#000000"
             android:layout_marginTop="8dp"
-            android:focusable="true"
             app:layout_constraintTop_toBottomOf="@id/profile_name"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
@@ -94,7 +94,6 @@
         </LinearLayout>
 
         <!-- Botones de estado -->
-
         <TextView
             android:id="@+id/student_status_button"
             android:layout_width="wrap_content"
@@ -106,6 +105,7 @@
             app:layout_constraintTop_toBottomOf="@id/token_container"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
+
         <Button
             android:id="@+id/university_button"
             android:layout_width="wrap_content"
@@ -146,63 +146,78 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <!-- Asesorías -->
                 <TextView
-                    android:id="@+id/advisory_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Asesorías (3)"
-                    android:textSize="16sp"
-                    android:layout_marginTop="24dp"
-                    app:layout_constraintTop_toBottomOf="@id/mensajesyeconomia"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent" />
-
-                <HorizontalScrollView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/advisory_title">
+                    android:text="@string/mensajes"
+                    android:drawableEnd="@drawable/ic_arrow_right"
+                    android:paddingVertical="12dp"
+                    android:background="?attr/selectableItemBackground" />
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#E0E0E0" />
 
-                        <ImageView
-                            android:layout_width="100dp"
-                            android:layout_height="100dp"
-                            android:src="@drawable/ase1"
-                            android:contentDescription="@string/description_ase1"
-                            android:layout_marginEnd="8dp" />
-
-                        <ImageView
-                            android:layout_width="100dp"
-                            android:layout_height="100dp"
-                            android:src="@drawable/ase2"
-                            android:contentDescription="@string/description_ase2"
-                            android:layout_marginEnd="8dp" />
-
-                        <ImageView
-                            android:layout_width="100dp"
-                            android:layout_height="100dp"
-                            android:src="@drawable/ase3"
-                            android:contentDescription="@string/description_ase3"
-                            android:layout_marginEnd="8dp" />
-                    </LinearLayout>
-                </HorizontalScrollView>
-
-                <!-- Fecha -->
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Noviembre de 17 del 2025"
-                    android:layout_marginTop="16dp"
-                    android:textColor="#888888"
-                    android:textSize="12sp"
-                    app:layout_constraintTop_toBottomOf="@id/advisory_title"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent" />
+                    android:text="@string/economia"
+                    android:drawableEnd="@drawable/ic_arrow_right"
+                    android:paddingVertical="12dp"
+                    android:background="?attr/selectableItemBackground" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#E0E0E0" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
+
+        <!-- Asesorías -->
+        <TextView
+            android:id="@+id/advisory_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/NDEase"
+            android:textSize="16sp"
+            android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@id/mensajesyeconomia"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/advisory_title">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/ase1"
+                    android:contentDescription="@string/description_ase1"
+                    android:layout_marginEnd="8dp" />
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/ase2"
+                    android:contentDescription="@string/description_ase2"
+                    android:layout_marginEnd="8dp" />
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/ase3"
+                    android:contentDescription="@string/description_ase3"
+                    android:layout_marginEnd="8dp" />
+            </LinearLayout>
+        </HorizontalScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

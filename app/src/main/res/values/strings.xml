@@ -95,6 +95,13 @@
     <string name="description_ase2">ASESORIA 2</string>
     <string name="description_ase3">ASESORIA 3</string>
 
+    <string name="mensajes">Mensajes</string>
+    <string name="economia">Economia</string>
+    <string name="NDEase">Asesorias(3)</string>
+
+
+
+
 
 
 </resources>
