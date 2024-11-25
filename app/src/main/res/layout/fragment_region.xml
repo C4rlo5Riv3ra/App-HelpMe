@@ -7,6 +7,18 @@
     android:layout_height="match_parent"
     tools:context=".RegionFragment">
 
+    <ImageView
+        android:id="@+id/LogoHelpme"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:src="@drawable/logo_black"
+        app:layout_constraintBottom_toTopOf="@id/tvEligePais"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.1" />
+
     <TextView
         android:id="@+id/tvEligePais"
         android:layout_width="350dp"
@@ -14,7 +26,7 @@
         android:text="Elige Pais"
         android:textStyle="bold"
         android:textSize="18sp"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/LogoHelpme"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="24dp" />
