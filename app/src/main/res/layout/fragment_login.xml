@@ -97,7 +97,7 @@
         app:layout_constraintTop_toBottomOf="@id/edtPassword" />
 
     <TextView
-        android:id="@+id/txtNewLogin"
+        android:id="@+id/txtquestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -111,7 +111,7 @@
         app:layout_constraintTop_toBottomOf="@id/btnIniciarSesion" />
 
     <Button
-        android:id="@+id/btnRegistrate"
+        android:id="@+id/btnNewLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -122,6 +122,6 @@
         android:backgroundTint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtNewLogin" />
+        app:layout_constraintTop_toBottomOf="@id/txtquestion" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
