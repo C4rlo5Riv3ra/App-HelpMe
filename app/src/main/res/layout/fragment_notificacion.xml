@@ -62,7 +62,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:width="350dp"
-        android:height="40dp"
+        android:height="50dp"
         android:background="@android:drawable/editbox_background"
         android:drawableLeft="@android:drawable/ic_menu_search"
         android:drawablePadding="8dp"
