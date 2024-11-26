@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".PersonalizacionAcademicaFragment">
 
+
     <ImageView
         android:id="@+id/LogoHelpme"
         android:layout_width="280dp"
@@ -96,5 +97,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
