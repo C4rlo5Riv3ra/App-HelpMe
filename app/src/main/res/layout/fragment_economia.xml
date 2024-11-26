@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <!-- Imagen de encabezado -->
+    <ImageView
+        android:id="@+id/header_image"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/frame"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Botones de Tokens y Soles -->
+    <LinearLayout
+        android:id="@+id/token_soles_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
+        android:paddingHorizontal="16dp"
+        app:layout_constraintTop_toBottomOf="@id/header_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/tokens_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_red_background"
+            android:paddingVertical="12dp"
+            android:gravity="center"
+            android:text="1000 Tokens 🪙"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_marginEnd="8dp" />
+
+        <TextView
+            android:id="@+id/soles_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_green_background"
+            android:paddingVertical="12dp"
+            android:gravity="center"
+            android:text="500 Soles 💵"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <!-- Sección de Recargar -->
+    <TextView
+        android:id="@+id/recharge_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Recargar"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@id/token_soles_container"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="16dp" />
+
+    <LinearLayout
+        android:id="@+id/recharge_buttons_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/recharge_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingHorizontal="16dp">
+
+        <Button
+            android:id="@+id/yape_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Yape"
+            android:backgroundTint="#A020F0"
+            android:textColor="#FFFFFF"
+            android:layout_marginEnd="8dp" />
+
+        <Button
+            android:id="@+id/card_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Tarjeta débito y/o crédito"
+            android:backgroundTint="#FF4D4D"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+    <!-- Sección de Conversión -->
+    <TextView
+        android:id="@+id/conversion_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Convertir"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@id/recharge_buttons_container"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="16dp" />
+
+    <TextView
+        android:id="@+id/conversion_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Información Importante acerca del valor de la conversión\n\nTokens a Soles 🇵🇪\n1 Token = 3.40 Soles 💰\n\nTokens a Pesos Colombianos 🇨🇴\n1 Token = 3 mil pesos 💵"
+        android:textSize="14sp"
+        android:textColor="#555555"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/conversion_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="16dp" />
+
+    <!-- Iconos de Transformación -->
+    <LinearLayout
+        android:id="@+id/transform_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/conversion_info"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:id="@+id/flag_peru"
+            android:layout_width="48dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_flag_peru"
+            android:layout_marginEnd="8dp" />
+
+        <ImageView
+            android:id="@+id/transform_icon"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/Billete.svg" />
+
+        <ImageView
+            android:id="@+id/flag_colombia"
+            android:layout_width="48dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_flag_colombia"
+            android:layout_marginStart="8dp" />
+    </LinearLayout>
+
+    <!-- Botón Transformar -->
+    <Button
+        android:id="@+id/transform_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Transformar"
+        android:backgroundTint="#D3D3D3"
+        android:textColor="#555555"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/transform_container"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Botón Retirar -->
+    <TextView
+        android:id="@+id/withdraw_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Retirar"
+        android:textColor="#555555"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/transform_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp" />
+
+    <Button
+       android:id="@+id/btnCuentaBancaria"
+       android:layout_height="wrap_content"
+       android:layout_width="wrap_content"
+       android:text="Cuenta Bancaria"
+       app:layout_constraintTop_toBottomOf="@id/transform_button"
+       app:layout_constraintStart_toStarOf="parent"
+       app:layout_constraintEnd_toSEndOf="parent"
+       android:layout_marginTop="13dp"
+       android:orientation="horizontal"
+       android:layout_gravity="center"
+        tools:ignore="MissingConstraints" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
