@@ -18,29 +18,29 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.1" />
+        app:layout_constraintVertical_bias="0.1"/>
 
     <TextView
         android:id="@+id/helloText"
         android:layout_height="wrap_content"
-        android:layout_width="350dp"
-        android:text="Hola Josafat, ¡estás a un paso de disfrutar de la mejor asesoría!"
+        android:layout_width="wrap_content"
+        android:width="350dp"
+        android:text="Hola Myson, ¡estás a un paso de disfrutar de la mejor asesoría!"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/descriptionText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/LogoHelpme"
-        android:gravity="center" />
+        android:gravity="center"/>
 
-    <!-- Texto de Ayuda -->
     <TextView
         android:id="@+id/descriptionText"
-        android:text="Ayúdanos a personalizar tu experiencia para que se ajuste a tus necesidades académicas."
-        android:textSize="14sp"
-        android:textStyle="bold"
-        android:layout_width="350dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:width="350dp"
+        android:text="Ayúdanos a personalizar tu experiencia para que se ajuste a tus necesidades académicas."
+        android:textSize="16sp"
         android:layout_marginTop="20dp"
         app:layout_constraintTop_toBottomOf="@+id/helloText"
         app:layout_constraintStart_toStartOf="parent"
@@ -59,9 +59,7 @@
         android:drawableEnd="@drawable/baseline_search_24"
         app:layout_constraintTop_toBottomOf="@+id/descriptionText"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintMarginTop="20dp"
-        app:layout_constraintHorizontal_bias="0.5" />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <AutoCompleteTextView
         android:id="@+id/careerInput"
@@ -75,14 +73,12 @@
         android:layout_marginTop="30dp"
         app:layout_constraintTop_toBottomOf="@+id/universityInput"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintMarginTop="20dp"
-        app:layout_constraintHorizontal_bias="0.5" />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <Spinner
         android:id="@+id/cycleSpinner"
         android:layout_width="350dp"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         app:layout_constraintTop_toBottomOf="@+id/careerInput"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -99,6 +95,6 @@
         app:layout_constraintTop_toBottomOf="@id/cycleSpinner"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5" />
+        app:layout_constraintHorizontal_bias="0.5"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
