@@ -20,4 +20,11 @@
     <color name="background_light">#F5F5F5</color> <!-- Color de fondo general -->
 
 
+    <!-- mensajes -->
+    <color name="light_gray">#E0E0E0</color>
+    <color name="light_blue">#BBDEFB</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="gray">#757575</color>
+
 </resources>
