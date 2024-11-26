@@ -79,11 +79,11 @@ public class LoginFragment extends Fragment {
         userCredentials.put("Estudiante1", "Estudiante1");
         userCredentials.put("Asesor1", "Asesor1");
 
-        binding.txtNewLogin.setOnClickListener(new View.OnClickListener() {
+        binding.btnNewLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                String NewUser = binding.txtNewLogin.getText().toString();
+                String NewUser = binding.btnNewLogin.getText().toString();
                 LoginFragmentDirections.ActionLoginFragmentToFirstFragment action =
                         LoginFragmentDirections.actionLoginFragmentToFirstFragment(NewUser);
                 NavHostFragment.findNavController(LoginFragment.this).navigate(action);
@@ -104,11 +104,9 @@ public class LoginFragment extends Fragment {
                 } else {
                     Toast.makeText(getContext(), "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show();
                 }
-
             }
         });
     }
-
     // Método para verificar las credenciales
     private boolean authenticate(String username, String password) {
         return userCredentials.containsKey(username) && userCredentials.get(username).equals(password);

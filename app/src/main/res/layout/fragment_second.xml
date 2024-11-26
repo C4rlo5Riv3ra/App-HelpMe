@@ -9,18 +9,29 @@
     android:padding="16dp"
     tools:context=".SecondFragment">
 
-    <TextView
-        android:id="@+id/titleSTUDENTADVISER"
-        android:layout_width="wrap_content"
+    <ImageView
+        android:id="@+id/LogoHelpme"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
-        android:width="345dp"
-        android:text="@string/txtquestionStudentAdviser"
-        android:textSize="30sp"
+        android:padding="5dp"
+        android:src="@drawable/logo_black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.31" />
+        app:layout_constraintVertical_bias="0.13999999" />
+
+    <TextView
+        android:id="@+id/titleSTUDENTADVISER"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:width="345dp"
+        android:text="@string/txtquestionStudentAdviser"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/LogoHelpme" />
 
     <Button
         android:id="@+id/bntSTUDENT"
@@ -50,6 +61,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/bntSTUDENT" />
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

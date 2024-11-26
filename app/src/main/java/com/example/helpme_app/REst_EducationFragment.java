@@ -2,24 +2,18 @@ package com.example.helpme_app;
 
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.NavDirections;
-import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.helpme_app.databinding.FragmentRegistroAsesorBinding;
-
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link RegistroAsesorFragment#newInstance} factory method to
+ * Use the {@link REst_EducationFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class RegistroAsesorFragment extends Fragment {
-    private FragmentRegistroAsesorBinding binding;
+public class REst_EducationFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -30,7 +24,7 @@ public class RegistroAsesorFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public RegistroAsesorFragment() {
+    public REst_EducationFragment() {
         // Required empty public constructor
     }
 
@@ -40,11 +34,11 @@ public class RegistroAsesorFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment RegistroAsesorFragment.
+     * @return A new instance of fragment REst_EducationFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static RegistroAsesorFragment newInstance(String param1, String param2) {
-        RegistroAsesorFragment fragment = new RegistroAsesorFragment();
+    public static REst_EducationFragment newInstance(String param1, String param2) {
+        REst_EducationFragment fragment = new REst_EducationFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -64,27 +58,7 @@ public class RegistroAsesorFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        binding = FragmentRegistroAsesorBinding.inflate(inflater, container, false);
-        return  binding.getRoot();
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_r_est__education, container, false);
     }
-
-    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-        String email = RegistroAsesorFragmentArgs.fromBundle(getArguments()).getArgEmail();
-        String emailFormat = getString(R.string.welconCode, email);
-        binding.tvSubTitle.setText(emailFormat);
-
-        binding.btnCrearCuenta.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                NavDirections action = RegistroAsesorFragmentDirections.actionRegistroAsesorFragmentToRAseEducationFragment();
-                NavHostFragment.findNavController(RegistroAsesorFragment.this).navigate(action);
-            }
-        });
-
-    }
-
-
 }

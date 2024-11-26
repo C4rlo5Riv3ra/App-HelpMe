@@ -1,184 +1,223 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#F9F9F9">
 
-
-    <ScrollView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
+        <!-- Imagen de perfil -->
+        <ImageView
+            android:id="@+id/profile_image"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/ic_profile_placeholder"
+            android:contentDescription="@string/descripcion"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Nombre de perfil -->
+        <TextView
+            android:id="@+id/profile_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nameStudent"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/profile_image"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Botón de edición -->
+        <Button
+            android:id="@+id/edit_profile_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/editperfil"
+            android:backgroundTint="#FFFFFF"
+            android:textColor="#000000"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/profile_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Descripción -->
+        <TextView
+            android:id="@+id/profile_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/descripcion"
+            android:textSize="14sp"
+            android:textColor="#888888"
+            android:gravity="center"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/edit_profile_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Tokens y Soles -->
         <LinearLayout
+            android:id="@+id/token_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/profile_description"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                android:id="@+id/tokens"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tokens"
+                android:background="@drawable/rounded_red_background"
+                android:padding="8dp"
+                android:textColor="#FFFFFF"
+                android:layout_marginEnd="8dp" />
+
+            <TextView
+                android:id="@+id/soles"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/soles"
+                android:background="@drawable/rounded_green_background"
+                android:padding="8dp"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+
+        <!-- Botones de estado -->
+        <TextView
+            android:id="@+id/student_status_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/aseorest"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/token_container"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <Button
+            android:id="@+id/university_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Uni"
+            android:backgroundTint="#3B82F6"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/student_status_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <Button
+            android:id="@+id/major_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/escuela"
+            android:backgroundTint="#3B82F6"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/university_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Mensajes y Economía -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/mensajesyeconomia"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center_horizontal">
-            <ImageView
-                android:id="@+id/profile_image"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_marginTop="16dp"
-                android:src="@drawable/ic_profile_placeholder" />
-
-            <TextView
-                android:id="@+id/profile_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/nameStudent"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:layout_marginTop="8dp" />
-
-            <Button
-                android:id="@+id/edit_profile_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Editar Perfil"
-                android:backgroundTint="#FFFFFF"
-                android:textColor="#000000"
-                android:elevation="2dp"
-                android:layout_marginTop="8dp" />
-
-            <!-- Descripción -->
-            <TextView
-                android:id="@+id/profile_description"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Frase para poner en descripción,Frase para poner en descripción"
-                android:textSize="14sp"
-                android:layout_marginTop="8dp"
-                android:gravity="center"
-                android:textColor="#888888" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="16dp">
-
-                <TextView
-                    android:id="@+id/tokens"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="1000 Tokens"
-                    android:background="@drawable/rounded_red_background"
-                    android:padding="8dp"
-                    android:textColor="#FFFFFF"
-                    android:layout_marginEnd="8dp"
-                />
-
-                <TextView
-                    android:id="@+id/soles"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="500 Soles"
-                    android:background="@drawable/rounded_green_background"
-                    android:padding="8dp"
-                    android:textColor="#FFFFFF" />
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/student_status_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="ESTUDIANTE"
-                android:layout_marginTop="16dp" />
-            <Button
-                android:id="@+id/major_button2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="UNIVERSIDAD SEÑOR DE SIPAN"
-                android:backgroundTint="#3B82F6"
-                android:textColor="#FFFFFF"
-                android:layout_marginTop="8dp" />
-
-
-            <Button
-                android:id="@+id/major_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="INGENIERÍA DE SISTEMAS"
-                android:backgroundTint="#3B82F6"
-                android:textColor="#FFFFFF"
-                android:layout_marginTop="8dp" />
+            android:layout_marginTop="16dp"
+            android:padding="16dp"
+            app:layout_constraintTop_toBottomOf="@id/major_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="16dp">
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Mensajes"
-                    android:drawableEnd="@drawable/ic_chevron_right"
+                    android:text="@string/mensajes"
+                    android:drawableEnd="@drawable/ic_arrow_right"
                     android:paddingVertical="12dp"
-                    android:paddingHorizontal="16dp"
-                    android:background="?attr/selectableItemBackground"
-                    android:onClick="goToMessagesActivity" />
+                    android:background="?attr/selectableItemBackground" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#E0E0E0" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Economía"
-                    android:drawableEnd="@drawable/ic_chevron_right"
+                    android:text="@string/economia"
+                    android:drawableEnd="@drawable/ic_arrow_right"
                     android:paddingVertical="12dp"
-                    android:paddingHorizontal="16dp"
-                    android:background="?attr/selectableItemBackground"
-                    android:onClick="goToEconomyActivity" />
+                    android:background="?attr/selectableItemBackground" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#E0E0E0" />
             </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Asesorías (3)"
-                android:textSize="16sp"
-                android:layout_marginTop="24dp"
-                android:paddingStart="16dp" />
+        <!-- Asesorías -->
+        <TextView
+            android:id="@+id/advisory_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/NDEase"
+            android:textSize="16sp"
+            android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@id/mensajesyeconomia"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-            <HorizontalScrollView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp">
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/advisory_title">
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <ImageView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_marginEnd="8dp" />
-
-                    <ImageView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_marginEnd="8dp" />
-
-                    <ImageView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_marginEnd="8dp" />
-
-                    <ImageView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_marginEnd="8dp" />
-                </LinearLayout>
-            </HorizontalScrollView>
-
-            <TextView
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Noviembre de 17 del 2025"
-                android:layout_marginTop="16dp"
-                android:textColor="#888888"
-                android:textSize="12sp" />
+                android:orientation="horizontal">
 
-        </LinearLayout>
-    </ScrollView>
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/ase1"
+                    android:contentDescription="@string/description_ase1"
+                    android:layout_marginEnd="8dp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/ase2"
+                    android:contentDescription="@string/description_ase2"
+                    android:layout_marginEnd="8dp" />
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/ase3"
+                    android:contentDescription="@string/description_ase3"
+                    android:layout_marginEnd="8dp" />
+            </LinearLayout>
+        </HorizontalScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
