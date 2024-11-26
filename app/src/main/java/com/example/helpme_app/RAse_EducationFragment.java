@@ -82,6 +82,15 @@ public class RAse_EducationFragment extends Fragment {
             }
         });
 
+        binding.btnContinue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavDirections action = RAse_EducationFragmentDirections.actionRAseEducationFragmentToLoginFragment();
+                NavHostFragment.findNavController(RAse_EducationFragment.this).navigate(action);
+            }
+        });
+
+
     }
 
     private void showTeachingTypeDialog() {

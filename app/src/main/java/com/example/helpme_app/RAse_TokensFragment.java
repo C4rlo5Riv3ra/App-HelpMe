@@ -5,6 +5,8 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavDirections;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -73,6 +75,14 @@ public class RAse_TokensFragment extends Fragment {
 
         binding.edTokens.setOnClickListener(v -> showTokensForSesion() );
         binding.edDurationSesion.setOnClickListener(c -> showDurationForSesion());
+
+        binding.btnContinue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavDirections action = RAse_TokensFragmentDirections.actionRAseTokensFragmentToRAseEducationFragment();
+                NavHostFragment.findNavController(RAse_TokensFragment.this).navigate(action);
+            }
+        });
 
     }
 

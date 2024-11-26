@@ -162,7 +162,7 @@
         android:width="250dp"
         android:height="58dp"
         android:backgroundTint="@color/secondary"
-        android:text="@string/btncreateAccount"
+        android:text="@string/btnNext"
         android:textColor="@android:color/white"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"

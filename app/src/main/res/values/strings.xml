@@ -37,7 +37,7 @@
     <string name="btncreateAccount">Crear Cuenta</string>
 
     <!-- Bienvenida Personalizada Asesor -->
-    <string name="personalizedWelcomeAdviser">Ayúdanos a personalizar tu experiencia para que se ajuste a tus necesidades.</string>
+    <string name="personalizedWelcomeAdviser">Ayúdanos a personalizar tu experiencia para que se ajuste a tus necesidades. %1$s</string>
     <string name="nameEspecialidad">Especialidad/Area de Experiencia</string>
     <string name="ageExperience">Años de Experiencia</string>
     <string name="codeColegiatura">Codigo de Colegiatura</string>
