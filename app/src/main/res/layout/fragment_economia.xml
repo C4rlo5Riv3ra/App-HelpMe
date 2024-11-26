@@ -13,8 +13,10 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/frame"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:src="@drawable/money"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <!-- Botones de Tokens y Soles -->
     <LinearLayout
@@ -67,6 +69,7 @@
         android:layout_marginTop="24dp"
         app:layout_constraintTop_toBottomOf="@id/token_soles_container"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginStart="16dp" />
 
     <LinearLayout
@@ -82,7 +85,7 @@
 
         <Button
             android:id="@+id/yape_button"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Yape"
@@ -92,7 +95,7 @@
 
         <Button
             android:id="@+id/card_button"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Tarjeta débito y/o crédito"
@@ -111,11 +114,12 @@
         android:layout_marginTop="24dp"
         app:layout_constraintTop_toBottomOf="@id/recharge_buttons_container"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginStart="16dp" />
 
     <TextView
         android:id="@+id/conversion_info"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Información Importante acerca del valor de la conversión\n\nTokens a Soles 🇵🇪\n1 Token = 3.40 Soles 💰\n\nTokens a Pesos Colombianos 🇨🇴\n1 Token = 3 mil pesos 💵"
         android:textSize="14sp"
@@ -149,7 +153,7 @@
             android:id="@+id/transform_icon"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:src="@drawable/Billete.svg" />
+            android:src="@drawable/money" />
 
         <ImageView
             android:id="@+id/flag_colombia"
@@ -186,17 +190,18 @@
         android:layout_marginTop="8dp" />
 
     <Button
-       android:id="@+id/btnCuentaBancaria"
-       android:layout_height="wrap_content"
-       android:layout_width="wrap_content"
-       android:text="Cuenta Bancaria"
-       app:layout_constraintTop_toBottomOf="@id/transform_button"
-       app:layout_constraintStart_toStarOf="parent"
-       app:layout_constraintEnd_toSEndOf="parent"
-       android:layout_marginTop="13dp"
-       android:orientation="horizontal"
-       android:layout_gravity="center"
-        tools:ignore="MissingConstraints" />
+        android:id="@+id/btnCuentaBancaria"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="Cuenta Bancaria"
+        app:layout_constraintTop_toBottomOf="@id/transform_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="13dp"
+        android:backgroundTint="@color/secondary"
+        android:textColor="@color/white"
+        android:textSize="15sp" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
