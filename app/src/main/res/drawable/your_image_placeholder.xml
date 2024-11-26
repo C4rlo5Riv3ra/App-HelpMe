@@ -1,0 +1,22 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:height="24dp"
+    android:viewportHeight="24"
+    android:viewportWidth="24"
+    android:width="24dp"
+    android:tint="#000000">
+
+    <!-- Icono del token -->
+    <path
+        android:fillColor="@android:color/white"
+        android:pathData="M12,2a10,10 0 1,0 10,10a10,10 0 1,0 -10,-10zM12,4a8,8 0 1,1 -8,8a8,8 0 1,1 8,-8z" />
+
+    <!-- Flechas para representar el intercambio -->
+    <path
+        android:fillColor="#FFD700"
+        android:pathData="M8,11l3,-3v2h6v2h-6v2l-3,-3zM16,13l-3,3v-2h-6v-2h6v-2l3,3z" />
+
+    <!-- Icono de moneda -->
+    <path
+        android:fillColor="#FF5722"
+        android:pathData="M14,12a2,2 0 1,1 -4,0 2,2 0 1,1 4,0z" />
+</vector>

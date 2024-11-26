@@ -49,6 +49,9 @@
         <argument
             android:name="ArgEmail"
             app:argType="string" />
+        <action
+            android:id="@+id/action_registroAsesorFragment_to_RAse_EducationFragment"
+            app:destination="@id/RAse_EducationFragment" />
     </fragment>
     <fragment
         android:id="@+id/registroEstudianteFragment"
@@ -133,5 +136,19 @@
         android:name="com.example.helpme_app.Pantalla_20Fragment"
         android:label="fragment_pantalla_20"
         tools:layout="@layout/fragment_pantalla_20" />
+    <fragment
+        android:id="@+id/RAse_EducationFragment"
+        android:name="com.example.helpme_app.RAse_EducationFragment"
+        android:label="fragment_r_ase__education"
+        tools:layout="@layout/fragment_r_ase__education" >
+        <action
+            android:id="@+id/action_RAse_EducationFragment_to_RAse_TokensFragment"
+            app:destination="@id/RAse_TokensFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/RAse_TokensFragment"
+        android:name="com.example.helpme_app.RAse_TokensFragment"
+        android:label="fragment_r_ase__tokens"
+        tools:layout="@layout/fragment_r_ase__tokens" />
 
 </navigation>
