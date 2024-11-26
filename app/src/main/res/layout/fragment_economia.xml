@@ -121,7 +121,7 @@
         android:id="@+id/conversion_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Información Importante acerca del valor de la conversión\n\nTokens a Soles 🇵🇪\n1 Token = 3.40 Soles 💰\n\nTokens a Pesos Colombianos 🇨🇴\n1 Token = 3 mil pesos 💵"
+        android:text="Información Importante acerca del valor de la conversión\n\nTokens a Soles 🇵🇪\n1 Token = 3.40 Soles 💰"
         android:textSize="14sp"
         android:textColor="#555555"
         android:layout_marginTop="8dp"
