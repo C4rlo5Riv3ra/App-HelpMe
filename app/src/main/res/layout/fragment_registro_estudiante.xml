@@ -171,7 +171,7 @@
         android:width="250dp"
         android:height="58dp"
         android:backgroundTint="@color/mostaza"
-        android:text="@string/btncreateAccount"
+        android:text="@string/btnNext"
         android:textColor="@android:color/white"
         android:textSize="18sp"
         android:textStyle="bold"

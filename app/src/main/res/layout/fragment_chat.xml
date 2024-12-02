@@ -8,9 +8,6 @@
 
     tools:context=".ChatFragment">
 
-    <!-- Encabezado: Título y Tokens -->
-
-    <!-- ScrollView para mensajes -->
     <LinearLayout
         android:id="@+id/headerLayout"
         android:layout_width="0dp"
@@ -23,7 +20,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <!-- Encabezado -->
         <TextView
             android:id="@+id/tvTitle"
             android:layout_width="match_parent"

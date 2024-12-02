@@ -60,10 +60,13 @@ public class InicioFragment extends Fragment {
                 replaceFragment(new ComprasFragment());
                 return true;
             } else if (itemId == R.id.chat) {
-                replaceFragment(new ChatFragment());
+                replaceFragment(new BandejaChatsFragment());
                 return true;
             } else if (itemId == R.id.perfil) {
                 replaceFragment(new PerfilFragment());
+                return true;
+            } else if (itemId == R.id.notification) {
+                replaceFragment(new NotificacionFragment());
                 return true;
             }
             return false;
