@@ -12,10 +12,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.example.helpme_app.Interface.Grupo06PyAnyApi;
+import com.example.helpme_app.Model.AuthRequest;
+import com.example.helpme_app.Model.AuthResponse;
 import com.example.helpme_app.databinding.FragmentLoginBinding;
 import com.example.helpme_app.databinding.FragmentRegistroAsesorBinding;
 
 import java.util.HashMap;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -95,7 +104,7 @@ public class LoginFragment extends Fragment {
             public void onClick(View view) {
                 String username = binding.edtUserName.getText().toString();
                 String password = binding.edtPassword.getText().toString();
-
+/*
                 if (authenticate(username, password)) {
                     Toast.makeText(getContext(), "¡Bienvenido, " + username + "!", Toast.LENGTH_SHORT).show();
                     LoginFragmentDirections.ActionLoginFragmentToInicioFragment action =
@@ -104,6 +113,9 @@ public class LoginFragment extends Fragment {
                 } else {
                     Toast.makeText(getContext(), "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show();
                 }
+
+ */
+                accederLogin(username, password);
             }
         });
     }
@@ -111,5 +123,40 @@ public class LoginFragment extends Fragment {
     private boolean authenticate(String username, String password) {
         return userCredentials.containsKey(username) && userCredentials.get(username).equals(password);
     }
+
+
+    private void accederLogin(String p_username, String p_passsword){
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://grupo6tdam2024.pythonanywhere.com/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        Grupo06PyAnyApi grupo06PyAnyApi = retrofit.create(Grupo06PyAnyApi.class);
+        AuthRequest authRequest = new AuthRequest();
+        authRequest.setUsername(p_username);
+        authRequest.setPassword(p_passsword);
+        Call<AuthResponse> call = grupo06PyAnyApi.obtenerToken(authRequest);
+
+        call.enqueue(new Callback<AuthResponse>() {
+            @Override
+            public void onResponse(Call<AuthResponse> call, Response<AuthResponse> response) {
+                if (!response.isSuccessful()){
+                    Toast.makeText(getContext(), "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                AuthResponse authResponse = response.body();
+                Toast.makeText(getContext(), authResponse.getToken(), Toast.LENGTH_SHORT).show();
+
+            }
+
+            @Override
+            public void onFailure(Call<AuthResponse> call, Throwable t) {
+
+            }
+        });
+
+
+    }
+
 
 }
