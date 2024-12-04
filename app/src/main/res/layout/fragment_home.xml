@@ -1,17 +1,250 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/mostaza"
+    android:background="#FFFFFF"
     tools:context=".HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="25sp"
-        android:text="Home fragment"
-        android:layout_gravity="center"/>
+        android:orientation="vertical"
+        android:padding="16dp">
 
-</FrameLayout>
+        <!-- Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Descubrir"
+                android:textSize="24sp"
+                android:textColor="#000000"
+                android:fontFamily="sans-serif-medium" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1000 Tokens"
+                android:textSize="16sp"
+                android:textColor="#7D7D7D" />
+        </LinearLayout>
+
+        <!-- Main Image -->
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:src="@drawable/example_image"
+            android:scaleType="centerCrop"
+            android:layout_marginTop="16dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gestión Deportiva"
+            android:textSize="18sp"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="#000000"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="100 Tokens · 2 Horas"
+            android:textSize="14sp"
+            android:textColor="#7D7D7D"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Additional Options -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="¿Necesitas más alternativas?"
+            android:textSize="16sp"
+            android:textColor="#000000"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Horizontal ScrollView with Cards -->
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- Card 1: Backend - Python -->
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="#F5F5F5"
+                    android:padding="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:elevation="4dp"
+                    android:clipToOutline="true">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:src="@drawable/code_example"
+                        android:scaleType="centerCrop" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Backend - Python"
+                        android:textSize="16sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:layout_marginTop="8dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="20 Tokens · 4 Horas"
+                        android:textSize="14sp"
+                        android:textColor="#7D7D7D" />
+                </LinearLayout>
+
+                <!-- Card 2: Matemática -->
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="#F5F5F5"
+                    android:padding="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:elevation="4dp"
+                    android:clipToOutline="true">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:src="@drawable/math_example"
+                        android:scaleType="centerCrop" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Matemática"
+                        android:textSize="16sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:layout_marginTop="8dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="15 Tokens · 3 Horas"
+                        android:textSize="14sp"
+                        android:textColor="#7D7D7D" />
+                </LinearLayout>
+
+                <!-- Card 3: Testing software -->
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="#F5F5F5"
+                    android:padding="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:elevation="4dp"
+                    android:clipToOutline="true">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:src="@drawable/testing_example"
+                        android:scaleType="centerCrop" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Testing software"
+                        android:textSize="16sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:layout_marginTop="8dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="25 Tokens · 2 Horas"
+                        android:textSize="14sp"
+                        android:textColor="#7D7D7D" />
+                </LinearLayout>
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <!-- Card 2: Danzas Artísticas -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#F5F5F5"
+            android:padding="16dp"
+            android:elevation="4dp"
+            android:clipToOutline="true">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:src="@drawable/dance_example"
+                android:scaleType="centerCrop" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Danzas Artísticas"
+                android:textSize="16sp"
+                android:fontFamily="sans-serif-medium"
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="20 Tokens · 2 Horas"
+                android:textSize="14sp"
+                android:textColor="#7D7D7D" />
+        </LinearLayout>
+
+        <!-- Card 2: Danzas Artísticas -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#F5F5F5"
+            android:padding="16dp"
+            android:elevation="4dp"
+            android:clipToOutline="true">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:src="@drawable/dibujo_example"
+                android:scaleType="centerCrop" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dibujo de Ingenieria"
+                android:textSize="16sp"
+                android:fontFamily="sans-serif-medium"
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="30 Tokens · 2 Horas"
+                android:textSize="14sp"
+                android:textColor="#7D7D7D" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
