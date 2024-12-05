@@ -41,6 +41,19 @@ public class LoginFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+
+        binding.btnNewLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                String NewUser = binding.btnNewLogin.getText().toString();
+                LoginFragmentDirections.ActionLoginFragmentToFirstFragment action =
+                        LoginFragmentDirections.actionLoginFragmentToFirstFragment(NewUser);
+                NavHostFragment.findNavController(LoginFragment.this).navigate(action);
+            }
+        });
+
+
         binding.btnIniciarSesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -72,6 +72,12 @@ public class RAse_EducationFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        String anios = binding.edAniosEx.getText().toString();
+        String colegiatura = binding.edcodColegiatura.getText().toString();
+        String tipoEnseñanza = binding.edtipoEnsenianza.getText().toString();
+        String especialidad = binding.edEspecialidad.getText().toString();
+
+
         binding.edtipoEnsenianza.setOnClickListener(v -> showTeachingTypeDialog());
 
         binding.edTokens.setOnClickListener(new View.OnClickListener() {
@@ -85,8 +91,8 @@ public class RAse_EducationFragment extends Fragment {
         binding.btnContinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavDirections action = RAse_EducationFragmentDirections.actionRAseEducationFragmentToLoginFragment();
-                NavHostFragment.findNavController(RAse_EducationFragment.this).navigate(action);
+                //NavDirections action = RAse_EducationFragmentDirections.actionRAseEducationFragmentToLoginFragment();
+                //NavHostFragment.findNavController(RAse_EducationFragment.this).navigate(action);
             }
         });
 
