@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="textViewFecha" type="id" />
+    <item name="text_estado" type="id" />
+    <item name="text_duracion" type="id" />
+</resources>

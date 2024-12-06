@@ -59,7 +59,7 @@ public class RegistroAsesorFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         binding = FragmentRegistroAsesorBinding.inflate(inflater, container, false);
@@ -109,7 +109,7 @@ public class RegistroAsesorFragment extends Fragment {
         // Llamado asíncrono a nuestro servicio
         call.enqueue(new Callback<ResponseAsesor>() {
             @Override
-            public void onResponse(Call<ResponseAsesor> call, Response<ResponseAsesor> response) {
+            public void onResponse(@NonNull Call<ResponseAsesor> call, Response<ResponseAsesor> response) {
 
                 if(!response.isSuccessful()){
                     Toast.makeText(getActivity(), "¡Ocurrió un error!", Toast.LENGTH_SHORT).show();
@@ -117,7 +117,7 @@ public class RegistroAsesorFragment extends Fragment {
                 }
                 ResponseAsesor responseAsesor = response.body();
                 Toast.makeText(getActivity(), "Guardado", Toast.LENGTH_SHORT).show();
-                NavDirections action = RegistroAsesorFragmentDirections.actionRegistroAsesorFragmentToRAseEducationFragment();
+                NavDirections action = RegistroAsesorFragmentDirections.actionRegistroAsesorFragmentToRAseAsesoriaFragment();
                 NavHostFragment.findNavController(RegistroAsesorFragment.this).navigate(action);
 
             }

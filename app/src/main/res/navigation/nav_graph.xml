@@ -48,9 +48,10 @@
         <argument
             android:name="ArgEmail"
             app:argType="string" />
+
         <action
-            android:id="@+id/action_registroAsesorFragment_to_RAse_EducationFragment"
-            app:destination="@id/RAse_EducationFragment" />
+            android:id="@+id/action_registroAsesorFragment_to_RAseAsesoriaFragment"
+            app:destination="@id/RAseAsesoriaFragment" />
     </fragment>
     <fragment
         android:id="@+id/registroEstudianteFragment"
@@ -125,26 +126,17 @@
             android:id="@+id/action_academicInterestsFragment_to_inicioFragment"
             app:destination="@id/inicioFragment" />
     </fragment>
+
     <fragment
-        android:id="@+id/RAse_EducationFragment"
-        android:name="com.example.helpme_app.RAse_EducationFragment"
-        android:label="fragment_r_ase__education"
-        tools:layout="@layout/fragment_r_ase__education" >
+        android:id="@+id/RAseAsesoriaFragment"
+        android:name="com.example.helpme_app.RAse_AsesoriaFragment"
+        android:label="fragment_r_ase_registroase"
+        tools:layout="@layout/fragment_r_ase_registroase" >
+
         <action
-            android:id="@+id/action_RAse_EducationFragment_to_RAse_TokensFragment"
-            app:destination="@id/RAse_TokensFragment" />
-        <action
-            android:id="@+id/action_RAse_EducationFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            android:id="@+id/action_RAseAsesoriaFragment_to_loginFragment"
+            app:destination="@id/loginFragment"  />
     </fragment>
-    <fragment
-        android:id="@+id/RAse_TokensFragment"
-        android:name="com.example.helpme_app.RAse_TokensFragment"
-        android:label="fragment_r_ase__tokens"
-        tools:layout="@layout/fragment_r_ase__tokens" >
-        <action
-            android:id="@+id/action_RAse_TokensFragment_to_RAse_EducationFragment"
-            app:destination="@id/RAse_EducationFragment" />
-    </fragment>
+
 
 </navigation>
