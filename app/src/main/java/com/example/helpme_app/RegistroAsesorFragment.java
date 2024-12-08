@@ -26,58 +26,27 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RegistroAsesorFragment extends Fragment {
     private FragmentRegistroAsesorBinding binding;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
+    // Constructor vacío requerido
     public RegistroAsesorFragment() {
-        // Required empty public constructor
-    }
-
-    // TODO: Rename and change types and number of parameters
-    public static RegistroAsesorFragment newInstance(String param1, String param2) {
-        RegistroAsesorFragment fragment = new RegistroAsesorFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         binding = FragmentRegistroAsesorBinding.inflate(inflater, container, false);
-        return  binding.getRoot();
+        return binding.getRoot();
     }
 
+    @Override
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-
-        String nombres = binding.etNombres.getText().toString();
-        String apellidos = binding.etApellidos.getText().toString();
-        String dni = binding.etDocumento.getText().toString();
-        //String correo =
-        String password = binding.etPassword.getText().toString();
-        //String fechaNacimiento = binding.etFechaNacimiento.getText().toString() // validar tipo date
-
-
+        // Recupera el correo desde los argumentos
         String email = RegistroAsesorFragmentArgs.fromBundle(getArguments()).getArgUsuario().getEmail();
         String emailFormat = getString(R.string.welconCode, email);
         binding.tvSubTitle.setText(emailFormat);
@@ -85,51 +54,88 @@ public class RegistroAsesorFragment extends Fragment {
         binding.btnCrearCuenta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //NavDirections action = RegistroAsesorFragmentDirections.actionRegistroAsesorFragmentToRAseEducationFragment();
-                //NavHostFragment.findNavController(RegistroAsesorFragment.this).navigate(action);
-                nuevoUsuario(nombres, apellidos, dni, password);
+                // Obtén los datos ingresados por el usuario
+                String nombres = binding.etNombres.getText().toString().trim();
+                String apellidos = binding.etApellidos.getText().toString().trim();
+                String dni = binding.etDocumento.getText().toString().trim();
+                String password = binding.etPassword.getText().toString().trim();
+
+                // Valida los campos antes de proceder
+                if (validarFormulario(nombres, apellidos, dni, password)) {
+                    // Si todo está bien, crea el nuevo usuario
+                    nuevoUsuario(nombres, apellidos, dni, password);
+                }
             }
         });
-
     }
 
-    private void nuevoUsuario(String p_nombres, String p_apellidos, String p_dni, String p_password){
+    /**
+     * Método para validar los datos ingresados por el usuario
+     */
+    private boolean validarFormulario(String nombres, String apellidos, String dni, String password) {
+        if (nombres.isEmpty()) {
+            binding.etNombres.setError("El nombre es obligatorio");
+            return false;
+        }
+        if (apellidos.isEmpty()) {
+            binding.etApellidos.setError("El apellido es obligatorio");
+            return false;
+        }
+        if (dni.isEmpty() || dni.length() != 8 || !dni.matches("\\d+")) {
+            binding.etDocumento.setError("El DNI debe tener 8 dígitos numéricos");
+            return false;
+        }
+        if (password.isEmpty() || password.length() < 8) {
+            binding.etPassword.setError("La contraseña debe tener al menos 8 caracteres");
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * Método para registrar un nuevo usuario en el servidor
+     */
+    private void nuevoUsuario(String p_nombres, String p_apellidos, String p_dni, String p_password) {
+        // Configuración de Retrofit
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://grupo6tdam2024.pythonanywhere.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         Grupo06PyAnyApi grupo06PyAnyApi = retrofit.create(Grupo06PyAnyApi.class);
+
+        // Crea el objeto AsesorRequest
         AsesorRequest asesorRequest = new AsesorRequest();
         asesorRequest.setNombres(p_nombres);
         asesorRequest.setApellido(p_apellidos);
         asesorRequest.setDni(p_dni);
         asesorRequest.setPassword(p_password);
+
+        // Llamada al servicio
         Call<ResponseAsesor> call = grupo06PyAnyApi.nuevoAsesor(asesorRequest);
-        // Llamado asíncrono a nuestro servicio
+
+        // Manejo de la respuesta asíncrona
         call.enqueue(new Callback<ResponseAsesor>() {
             @Override
             public void onResponse(@NonNull Call<ResponseAsesor> call, Response<ResponseAsesor> response) {
-
-                if(!response.isSuccessful()){
-                    Toast.makeText(getActivity(), "¡Ocurrió un error!", Toast.LENGTH_SHORT).show();
+                if (!response.isSuccessful()) {
+                    Toast.makeText(getActivity(), "¡Ocurrió un error al registrar el usuario!", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                ResponseAsesor responseAsesor = response.body();
-                Toast.makeText(getActivity(), "Guardado", Toast.LENGTH_SHORT).show();
+
+                // Usuario registrado exitosamente
+                Toast.makeText(getActivity(), "Cuenta creada exitosamente", Toast.LENGTH_SHORT).show();
+
+                // Navegar al siguiente fragmento
                 NavDirections action = RegistroAsesorFragmentDirections.actionRegistroAsesorFragmentToRAseAsesoriaFragment();
                 NavHostFragment.findNavController(RegistroAsesorFragment.this).navigate(action);
-
             }
 
             @Override
             public void onFailure(Call<ResponseAsesor> call, Throwable t) {
-
+                // Error en la conexión o el servidor
+                Toast.makeText(getActivity(), "Error de conexión: " + t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
-
-
     }
-
-
 }
