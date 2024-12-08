@@ -3,4 +3,6 @@
     <item name="textViewFecha" type="id" />
     <item name="text_estado" type="id" />
     <item name="text_duracion" type="id" />
+    <item name="cycleSpinner" type="id" />
+    <item name="numberPicker" type="id" />
 </resources>

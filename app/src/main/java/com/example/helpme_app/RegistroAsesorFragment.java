@@ -78,7 +78,7 @@ public class RegistroAsesorFragment extends Fragment {
         //String fechaNacimiento = binding.etFechaNacimiento.getText().toString() // validar tipo date
 
 
-        String email = RegistroAsesorFragmentArgs.fromBundle(getArguments()).getArgEmail();
+        String email = RegistroAsesorFragmentArgs.fromBundle(getArguments()).getArgUsuario().getEmail();
         String emailFormat = getString(R.string.welconCode, email);
         binding.tvSubTitle.setText(emailFormat);
 
