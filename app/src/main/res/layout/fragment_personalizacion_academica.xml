@@ -58,7 +58,6 @@
         android:background="@drawable/editborderblack"
         android:dropDownHeight="200dp"
         android:layout_marginTop="25dp"
-        app:drawableEndCompat="@drawable/baseline_search_24"
         app:layout_constraintTop_toBottomOf="@+id/descriptionText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
