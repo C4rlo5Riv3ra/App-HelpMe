@@ -80,6 +80,15 @@ public class RAse_EducationFragment extends Fragment {
         binding.edtipoEnsenianza.setOnClickListener(v -> showBottomSheetDialogTipoEnseñanza());
         //  binding.edDisponibilidad.setOnClickListener(v -> showBottomSheetDialogDisponibilidad());
         // binding.edTokens.setOnClickListener(v -> showBottomSheetDialogToken());
+
+        binding.btnContinue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavDirections action = RAse_EducationFragmentDirections.actionRAseEducationFragmentToDisponibilidadAsesorFragment();
+                NavHostFragment.findNavController(RAse_EducationFragment.this).navigate(action);
+            }
+        });
+
     }
 
     private void showBottomSheetDialogEspecialidad() {
