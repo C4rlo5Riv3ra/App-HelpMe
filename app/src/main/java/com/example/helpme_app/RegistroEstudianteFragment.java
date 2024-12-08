@@ -1,7 +1,8 @@
 package com.example.helpme_app;
 
+import android.app.DatePickerDialog;
 import android.os.Bundle;
-
+import android.widget.DatePicker;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavDirections;
@@ -10,8 +11,17 @@ import androidx.navigation.fragment.NavHostFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.Toast;
 
+import com.example.helpme_app.Model.Persona;
+import com.example.helpme_app.Model.Usuario;
 import com.example.helpme_app.databinding.FragmentRegistroEstudianteBinding;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -68,21 +78,101 @@ public class RegistroEstudianteFragment extends Fragment {
         return binding.getRoot();
     }
 
+
+    @Override
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        String email = RegistroAsesorFragmentArgs.fromBundle(getArguments()).getArgUsuario().getEmail();
-        String emailFormat = getString(R.string.welconCode, email);
-        binding.tvSubTitle.setText(emailFormat);
+        binding.etFechaNacimiento.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mostrarDatePicker();
+            }
+        });
 
         binding.btnCrearCuenta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavDirections action = RegistroEstudianteFragmentDirections.actionRegistroEstudianteFragmentToPersonalizacionacademicaFragment();
+                Usuario usuario = RegistroEstudianteFragmentArgs.fromBundle(getArguments()).getArgUsuario();
+                Persona persona = new Persona();
+
+                if (binding.etNombres.getText().toString().trim().isEmpty() ||
+                        binding.etApellidos.getText().toString().trim().isEmpty() ||
+                        binding.etDocumento.getText().toString().trim().isEmpty() ||
+                        binding.etFechaNacimiento.getText().toString().trim().isEmpty()) {
+                    Toast.makeText(getContext(), "Por favor, complete todos los campos", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                persona.setNombre(binding.etNombres.getText().toString().trim());
+                persona.setApellidos(binding.etApellidos.getText().toString().trim());
+                persona.setDni(binding.etDocumento.getText().toString().trim());
+                Date fecha = obtenerFechaNacimiento(binding.etFechaNacimiento);
+                if (fecha == null) return; // Validación de la fecha
+                persona.setFechanacimiento(fecha);
+
+                if (!binding.cbAceptarTerminos.isChecked()) {
+                    Toast.makeText(getContext(), "Debes aceptar los términos", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                String emailFormat = getString(R.string.welconCode, usuario.getEmail());
+                binding.tvSubTitle.setText(emailFormat);
+
+                RegistroEstudianteFragmentDirections.ActionRegistroEstudianteFragmentToPersonalizacionacademicaFragment action =
+                        RegistroEstudianteFragmentDirections.actionRegistroEstudianteFragmentToPersonalizacionacademicaFragment(usuario, persona);
                 NavHostFragment.findNavController(RegistroEstudianteFragment.this).navigate(action);
             }
         });
+    }
 
+    private void mostrarDatePicker() {
+        final Calendar calendar = Calendar.getInstance();
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(
+                requireContext(),
+                new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                        String fechaSeleccionada = String.format(Locale.getDefault(), "%02d/%02d/%04d", dayOfMonth, month + 1, year);
+                        binding.etFechaNacimiento.setText(fechaSeleccionada);
+                    }
+                },
+                calendar.get(Calendar.YEAR),
+                calendar.get(Calendar.MONTH),
+                calendar.get(Calendar.DAY_OF_MONTH)
+        );
+
+        datePickerDialog.show();
+    }
+
+    public Date obtenerFechaNacimiento(EditText etFechaNacimiento) {
+        String fechaStr = etFechaNacimiento.getText().toString();
+
+        if (fechaStr.isEmpty()) {
+            Toast.makeText(getContext(), "Por favor ingresa una fecha", Toast.LENGTH_SHORT).show();
+            return null;
+        }
+
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+        Date fechaNacimiento = null;
+
+        try {
+            fechaNacimiento = sdf.parse(fechaStr);
+        } catch (Exception e) {
+            Toast.makeText(getContext(), "Fecha inválida, usa el formato correcto (dd/MM/yyyy)", Toast.LENGTH_SHORT).show();
+            return null;
+        }
+
+        Calendar calendar = Calendar.getInstance();
+        int edad = calendar.get(Calendar.YEAR) - (fechaNacimiento.getYear() + 1900);
+
+        if (edad < 18) {
+            Toast.makeText(getContext(), "Debe tener más de 18 años", Toast.LENGTH_SHORT).show();
+            return null;
+        }
+
+        return fechaNacimiento;
     }
 
 }

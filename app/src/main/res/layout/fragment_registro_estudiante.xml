@@ -36,24 +36,6 @@
         android:layout_marginTop="10dp"/>
 
     <EditText
-        android:id="@+id/etCodigo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:width="345dp"
-        android:inputType="number"
-        android:drawablePadding="10dp"
-        android:hint="@string/codeStudent"
-        android:padding="10dp"
-        android:textColor="@color/orange"
-        android:textColorHint="@color/gray"
-        android:layout_marginTop="35dp"
-        android:background="@drawable/editborderblack"
-        app:layout_constraintTop_toBottomOf="@id/tvSubTitle"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintWidth_percent="0.9"/>
-
-    <EditText
         android:id="@+id/etNombres"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -64,7 +46,7 @@
         android:textColorHint="@color/gray"
         android:layout_marginTop="25dp"
         android:background="@drawable/editborderblack"
-        app:layout_constraintTop_toBottomOf="@id/etCodigo"
+        app:layout_constraintTop_toBottomOf="@id/tvSubTitle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintWidth_percent="0.9"/>
@@ -122,20 +104,21 @@
         android:id="@+id/etFechaNacimiento"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:width="345dp"
-        android:inputType="date"
         android:hint="@string/txtbirthdate"
         android:padding="10dp"
-        android:drawablePadding="10dp"
+        android:width="345dp"
+        android:inputType="date"
         android:textColor="@color/orange"
         android:textColorHint="@color/gray"
         android:layout_marginTop="25dp"
         android:background="@drawable/editborderblack"
         android:drawableEnd="@drawable/baseline_date_range_24"
+        android:focusable="false"
         app:layout_constraintTop_toBottomOf="@id/etPassword"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintWidth_percent="0.9"/>
+
 
     <CheckBox
         android:id="@+id/cbRecibirCorreos"
