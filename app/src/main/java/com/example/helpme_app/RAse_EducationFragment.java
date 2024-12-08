@@ -83,8 +83,7 @@ public class RAse_EducationFragment extends Fragment {
         binding.edTokens.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavDirections action = RAse_EducationFragmentDirections.actionRAseEducationFragmentToRAseTokensFragment();
-                NavHostFragment.findNavController(RAse_EducationFragment.this).navigate(action);
+
             }
         });
 

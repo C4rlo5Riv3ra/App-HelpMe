@@ -1,38 +1,62 @@
 package com.example.helpme_app;
 
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.NavDirections;
 import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.helpme_app.Interface.Grupo06PyAnyApi;
-import com.example.helpme_app.Model.Asesores.AsesorRequest;
-import com.example.helpme_app.Model.Asesores.ResponseAsesor;
+
+import com.example.helpme_app.Model.Persona;
+import com.example.helpme_app.Model.Usuario;
 import com.example.helpme_app.databinding.FragmentRegistroAsesorBinding;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+
 
 public class RegistroAsesorFragment extends Fragment {
     private FragmentRegistroAsesorBinding binding;
 
-    // Constructor vacío requerido
+    // TODO: Rename parameter arguments, choose names that match
+    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM2 = "param2";
+
+    // TODO: Rename and change types of parameters
+    private String mParam1;
+    private String mParam2;
+
     public RegistroAsesorFragment() {
+    }
+
+
+    public static RegistroAsesorFragment newInstance(String param1, String param2){
+        RegistroAsesorFragment fragment = new RegistroAsesorFragment();
+        Bundle args = new Bundle();
+        args.putString(ARG_PARAM1, param1);
+        args.putString(ARG_PARAM2, param2);
+        fragment.setArguments(args);
+        return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            mParam1 = getArguments().getString(ARG_PARAM1);
+            mParam2 = getArguments().getString(ARG_PARAM2);
+        }
     }
 
     @Override
@@ -46,96 +70,99 @@ public class RegistroAsesorFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        // Recupera el correo desde los argumentos
-        String email = RegistroAsesorFragmentArgs.fromBundle(getArguments()).getArgUsuario().getEmail();
-        String emailFormat = getString(R.string.welconCode, email);
-        binding.tvSubTitle.setText(emailFormat);
+        binding.etFechaNacimiento.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mostrarDatePicker();
+            }
+        });
 
         binding.btnCrearCuenta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Obtén los datos ingresados por el usuario
-                String nombres = binding.etNombres.getText().toString().trim();
-                String apellidos = binding.etApellidos.getText().toString().trim();
-                String dni = binding.etDocumento.getText().toString().trim();
-                String password = binding.etPassword.getText().toString().trim();
+                Usuario usuario = RegistroAsesorFragmentArgs.fromBundle(getArguments()).getArgUsuario();
+                Persona persona = new Persona();
 
-                // Valida los campos antes de proceder
-                if (validarFormulario(nombres, apellidos, dni, password)) {
-                    // Si todo está bien, crea el nuevo usuario
-                    nuevoUsuario(nombres, apellidos, dni, password);
-                }
-            }
-        });
-    }
-
-    /**
-     * Método para validar los datos ingresados por el usuario
-     */
-    private boolean validarFormulario(String nombres, String apellidos, String dni, String password) {
-        if (nombres.isEmpty()) {
-            binding.etNombres.setError("El nombre es obligatorio");
-            return false;
-        }
-        if (apellidos.isEmpty()) {
-            binding.etApellidos.setError("El apellido es obligatorio");
-            return false;
-        }
-        if (dni.isEmpty() || dni.length() != 8 || !dni.matches("\\d+")) {
-            binding.etDocumento.setError("El DNI debe tener 8 dígitos numéricos");
-            return false;
-        }
-        if (password.isEmpty() || password.length() < 8) {
-            binding.etPassword.setError("La contraseña debe tener al menos 8 caracteres");
-            return false;
-        }
-        return true;
-    }
-
-    /**
-     * Método para registrar un nuevo usuario en el servidor
-     */
-    private void nuevoUsuario(String p_nombres, String p_apellidos, String p_dni, String p_password) {
-        // Configuración de Retrofit
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://grupo6tdam2024.pythonanywhere.com/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        Grupo06PyAnyApi grupo06PyAnyApi = retrofit.create(Grupo06PyAnyApi.class);
-
-        // Crea el objeto AsesorRequest
-        AsesorRequest asesorRequest = new AsesorRequest();
-        asesorRequest.setNombres(p_nombres);
-        asesorRequest.setApellido(p_apellidos);
-        asesorRequest.setDni(p_dni);
-        asesorRequest.setPassword(p_password);
-
-        // Llamada al servicio
-        Call<ResponseAsesor> call = grupo06PyAnyApi.nuevoAsesor(asesorRequest);
-
-        // Manejo de la respuesta asíncrona
-        call.enqueue(new Callback<ResponseAsesor>() {
-            @Override
-            public void onResponse(@NonNull Call<ResponseAsesor> call, Response<ResponseAsesor> response) {
-                if (!response.isSuccessful()) {
-                    Toast.makeText(getActivity(), "¡Ocurrió un error al registrar el usuario!", Toast.LENGTH_SHORT).show();
+                if (binding.etNombres.getText().toString().trim().isEmpty() ||
+                        binding.etApellidos.getText().toString().trim().isEmpty() ||
+                        binding.etDocumento.getText().toString().trim().isEmpty() ||
+                        binding.etFechaNacimiento.getText().toString().trim().isEmpty()) {
+                    Toast.makeText(getContext(), "Por favor, complete todos los campos", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                // Usuario registrado exitosamente
-                Toast.makeText(getActivity(), "Cuenta creada exitosamente", Toast.LENGTH_SHORT).show();
+                persona.setNombre(binding.etNombres.getText().toString().trim());
+                persona.setApellidos(binding.etApellidos.getText().toString().trim());
+                persona.setDni(binding.etDocumento.getText().toString().trim());
+                Date fecha = obtenerFechaNacimiento(binding.etFechaNacimiento);
+                if (fecha == null) return; // Validación de la fecha
+                persona.setFechanacimiento(fecha);
 
-                // Navegar al siguiente fragmento
-                NavDirections action = RegistroAsesorFragmentDirections.actionRegistroAsesorFragmentToRAseEducationFragment();
+                if (!binding.cbAceptarTerminos.isChecked()) {
+                    Toast.makeText(getContext(), "Debes aceptar los términos", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                String emailFormat = getString(R.string.welconCode, usuario.getEmail());
+                binding.tvSubTitle.setText(emailFormat);
+
+                RegistroAsesorFragmentDirections.ActionRegistroAsesorFragmentToRAseEducationFragment action =
+                        RegistroAsesorFragmentDirections.actionRegistroAsesorFragmentToRAseEducationFragment(usuario, persona);
                 NavHostFragment.findNavController(RegistroAsesorFragment.this).navigate(action);
             }
-
-            @Override
-            public void onFailure(Call<ResponseAsesor> call, Throwable t) {
-                // Error en la conexión o el servidor
-                Toast.makeText(getActivity(), "Error de conexión: " + t.getMessage(), Toast.LENGTH_LONG).show();
-            }
         });
+
     }
+
+
+    private void mostrarDatePicker() {
+        final Calendar calendar = Calendar.getInstance();
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(
+                requireContext(),
+                new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                        String fechaSeleccionada = String.format(Locale.getDefault(), "%02d/%02d/%04d", dayOfMonth, month + 1, year);
+                        binding.etFechaNacimiento.setText(fechaSeleccionada);
+                    }
+                },
+                calendar.get(Calendar.YEAR),
+                calendar.get(Calendar.MONTH),
+                calendar.get(Calendar.DAY_OF_MONTH)
+        );
+
+        datePickerDialog.show();
+    }
+
+
+    public Date obtenerFechaNacimiento(EditText etFechaNacimiento) {
+        String fechaStr = etFechaNacimiento.getText().toString();
+
+        if (fechaStr.isEmpty()) {
+            Toast.makeText(getContext(), "Por favor ingresa una fecha", Toast.LENGTH_SHORT).show();
+            return null;
+        }
+
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+        Date fechaNacimiento = null;
+
+        try {
+            fechaNacimiento = sdf.parse(fechaStr);
+        } catch (Exception e) {
+            Toast.makeText(getContext(), "Fecha inválida, usa el formato correcto (dd/MM/yyyy)", Toast.LENGTH_SHORT).show();
+            return null;
+        }
+
+        Calendar calendar = Calendar.getInstance();
+        int edad = calendar.get(Calendar.YEAR) - (fechaNacimiento.getYear() + 1900);
+
+        if (edad < 18) {
+            Toast.makeText(getContext(), "Debe tener más de 18 años", Toast.LENGTH_SHORT).show();
+            return null;
+        }
+
+        return fechaNacimiento;
+    }
+
 }

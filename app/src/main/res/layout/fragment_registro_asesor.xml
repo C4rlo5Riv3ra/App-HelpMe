@@ -36,21 +36,6 @@
         app:layout_constraintTop_toBottomOf="@id/titleRegisterAdviser"
         android:layout_marginTop="10dp"/>
 
-    <EditText
-        android:id="@+id/etCodigo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:autofillHints=""
-        android:width="310dp"
-        android:hint="@string/code"
-        android:inputType="number"
-        android:textColor="@color/secondary"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvSubTitle"
-        app:layout_constraintBottom_toTopOf="@id/etNombres"/>
 
     <EditText
         android:id="@+id/etNombres"
@@ -64,7 +49,7 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etCodigo"
+        app:layout_constraintTop_toBottomOf="@id/tvSubTitle"
         app:layout_constraintBottom_toTopOf="@id/etApellidos"/>
 
     <EditText
@@ -123,6 +108,7 @@
         android:inputType="date"
         android:textColor="@color/secondary"
         android:textSize="18sp"
+        android:focusable="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/etPassword"
