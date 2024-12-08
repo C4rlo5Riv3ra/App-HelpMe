@@ -164,6 +164,9 @@
             app:argType="com.example.helpme_app.Model.Usuario" />
         <argument android:name="ArgPersona"
             app:argType="com.example.helpme_app.Model.Persona" />
+        <action
+            android:id="@+id/action_RAse_EducationFragment_to_disponibilidadAsesorFragment"
+            app:destination="@id/disponibilidadAsesorFragment" />
     </fragment>
 
     <fragment
@@ -178,6 +181,11 @@
             android:name="ArgUsuario"
             app:argType="com.example.helpme_app.Model.Usuario" />
     </fragment>
+    <fragment
+        android:id="@+id/disponibilidadAsesorFragment"
+        android:name="com.example.helpme_app.DisponibilidadAsesorFragment"
+        android:label="fragment_disponibilidad_asesor"
+        tools:layout="@layout/fragment_disponibilidad_asesor" />
 
 
 </navigation>

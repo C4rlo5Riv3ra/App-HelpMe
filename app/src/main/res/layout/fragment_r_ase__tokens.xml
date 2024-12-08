@@ -33,7 +33,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvTitle" />
 
-
     <EditText
         android:id="@+id/ednameAsesoria"
         android:layout_width="wrap_content"
