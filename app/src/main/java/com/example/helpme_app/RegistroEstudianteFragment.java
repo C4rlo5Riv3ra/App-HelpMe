@@ -85,6 +85,4 @@ public class RegistroEstudianteFragment extends Fragment {
 
     }
 
-
-
 }
