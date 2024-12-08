@@ -6,20 +6,18 @@
     android:padding="16dp"
     android:background="#FFFFFF">
 
-    <!-- Título -->
     <TextView
-        android:id="@+id/title"
+        android:id="@+id/institucionEdu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nivel de Ciclo o Semestre"
+        android:text="Institución Educativa"
         android:textColor="#B0B0B0"
         android:textSize="18sp"
         android:layout_marginBottom="20dp"
         android:gravity="center" />
 
-    <!-- Selector -->
     <NumberPicker
-        android:id="@+id/numberPicker"
+        android:id="@+id/numberPicker3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp" />
