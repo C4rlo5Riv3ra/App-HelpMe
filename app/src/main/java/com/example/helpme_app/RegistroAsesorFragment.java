@@ -127,7 +127,7 @@ public class RegistroAsesorFragment extends Fragment {
                 Toast.makeText(getActivity(), "Cuenta creada exitosamente", Toast.LENGTH_SHORT).show();
 
                 // Navegar al siguiente fragmento
-                NavDirections action = RegistroAsesorFragmentDirections.actionRegistroAsesorFragmentToRAseAsesoriaFragment();
+                NavDirections action = RegistroAsesorFragmentDirections.actionRegistroAsesorFragmentToRAseEducationFragment();
                 NavHostFragment.findNavController(RegistroAsesorFragment.this).navigate(action);
             }
 

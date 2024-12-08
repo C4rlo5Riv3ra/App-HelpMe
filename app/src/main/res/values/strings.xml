@@ -14,8 +14,8 @@
     <string name="previous">Previous</string>
 
     <!-- Registro General -->
-    <string name="txttitleRegister">Dejanos tu <font color="#F6A700"><b>correo</b></font> para empezar juntos</string>
-    <string name="txtcontidions">Al continuar acepto las condiciones de <b>Helpme!</b>. <font color="#E1AD01"><b><u>Politicas de Privacidad y Terminos de Uso</u></b></font></string>
+    <string name="txttitleRegister">Dejanos tu <font color="#0000"><b>correo</b></font> para empezar juntos</string>
+    <string name="txtcontidions">Al continuar acepto las condiciones de <b>Helpme!</b>. <font color="#0000"><b><u>Politicas de Privacidad y Terminos de Uso</u></b></font></string>
     <string name="txthintEmail">Ingrese su correo</string>
     <string name="btnNext">Siguiente</string>
 
@@ -68,11 +68,11 @@
 
     <!-- Registro Estudiante -->
     <string name="titleWelcomStudent"><font color="#FF000000">Ahora, hagamos que te registres como </font><font color="#FFFFA500">Estudiante</font></string>
-    <string name="codeStudent">Ingrese codigo</string>
+
     <string name="nameStudent">Nombre estudiante</string>
     <string name="lastnameStudent">Apellidos estudiante</string>
     <string name="passwordStudent">Contraseña</string>
-    <string name="welconCode">Nosotros hemos enviado un código a tu correo o numero: <font color="#FFFFA500">%1$s</font></string>
+    <string name="welconCode">Tu correo a registrarse es: <font color="#FFFFA500">%1$s</font></string>
 
     <!-- Bienvenida Personalizada Estudiante -->
     <string name="personalizedWelcomeStudentTitle">Estas a un paso de disfrutar de la mejor asesoría.</string>

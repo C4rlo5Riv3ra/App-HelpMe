@@ -8,6 +8,17 @@
     android:layout_height="match_parent"
     android:padding="16dp"
     tools:context=".FirstFragment">
+    <ImageView
+        android:id="@+id/LogoHelpme"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:src="@drawable/logo_black"
+        app:layout_constraintBottom_toBottomOf="@id/titleRegister"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.13999999" />
 
     <TextView
         android:id="@+id/titleRegister"
@@ -60,7 +71,7 @@
         android:height="58dp"
         android:textColor="@color/white"
         android:text="@string/btnNext"
-        android:backgroundTint="@color/secondary"
+        android:backgroundTint="@color/black"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -35,10 +35,17 @@ public class FirstFragment extends Fragment {
         binding.btnContinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String email = binding.edtEmail.getText().toString().trim(); // Usamos trim() para eliminar espacios al inicio y al final
+
+                // Verificar si el campo está vacío
+                if (email.isEmpty()) {
+                    // Si el campo está vacío, mostramos un mensaje de error
+                    Toast.makeText(getContext(), "Por favor ingresa un email", Toast.LENGTH_SHORT).show();
+                    return; // Detener la ejecución si el campo está vacío
+                }
                 Usuario usuario = new Usuario();
-                String email = binding.edtEmail.getText().toString();
                 usuario.setEmail(email);
-                Toast.makeText(getContext(), "Bienvenido"+ email, Toast.LENGTH_SHORT).show();
+
                 FirstFragmentDirections.ActionFirstFragmentToSecondFragment action =
                         FirstFragmentDirections.actionFirstFragmentToSecondFragment(usuario);
                 NavHostFragment.findNavController(FirstFragment.this).navigate(action);
