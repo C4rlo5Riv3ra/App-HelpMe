@@ -71,14 +71,14 @@ public class RegistroEstudianteFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        String email = RegistroAsesorFragmentArgs.fromBundle(getArguments()).getArgEmail();
+        String email = RegistroAsesorFragmentArgs.fromBundle(getArguments()).getArgUsuario().getEmail();
         String emailFormat = getString(R.string.welconCode, email);
         binding.tvSubTitle.setText(emailFormat);
 
         binding.btnCrearCuenta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavDirections action = RegistroEstudianteFragmentDirections.actionRegistroEstudianteFragmentToAcademicInterestsFragment();
+                NavDirections action = RegistroEstudianteFragmentDirections.actionRegistroEstudianteFragmentToPersonalizacionacademicaFragment();
                 NavHostFragment.findNavController(RegistroEstudianteFragment.this).navigate(action);
             }
         });

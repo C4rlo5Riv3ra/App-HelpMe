@@ -1,64 +1,76 @@
 package com.example.helpme_app;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.NumberPicker;
+import android.widget.Toast;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link PersonalizacionAcademicaFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
+import com.example.helpme_app.databinding.FragmentPersonalizacionAcademicaBinding;
+import com.example.helpme_app.databinding.BottomSheetLayoutBinding;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
+
 public class PersonalizacionAcademicaFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private FragmentPersonalizacionAcademicaBinding binding; // View Binding para el fragmento
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public PersonalizacionAcademicaFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment PersonalizacionAcademicaFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static PersonalizacionAcademicaFragment newInstance(String param1, String param2) {
-        PersonalizacionAcademicaFragment fragment = new PersonalizacionAcademicaFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        // Inflar el layout del fragmento usando View Binding
+        binding = FragmentPersonalizacionAcademicaBinding.inflate(inflater, container, false);
+        return binding.getRoot();
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        // Configurar el botón para mostrar el BottomSheet
+        binding.cycleButton.setOnClickListener(v -> showBottomSheetDialog());
+    }
+
+    private void showBottomSheetDialog() {
+
+        View bottomSheetView = LayoutInflater.from(requireContext()).inflate(R.layout.bottom_sheet_layout, null);
+
+        // Crear el BottomSheetDialog
+        BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(requireContext());
+        bottomSheetDialog.setContentView(bottomSheetView);
+
+        // Encontrar el NumberPicker
+        NumberPicker numberPicker = bottomSheetView.findViewById(R.id.numberPicker);
+        numberPicker.setMinValue(1); // Valor mínimo
+        numberPicker.setMaxValue(10); // Valor máximo
+        numberPicker.setWrapSelectorWheel(true); // Comportamiento cíclico
+
+        // Configurar el botón "Siguiente"
+        Button nextButton = bottomSheetView.findViewById(R.id.nextButton);
+        nextButton.setOnClickListener(v -> {
+            int selectedValue = numberPicker.getValue();
+            Toast.makeText(requireContext(), "Seleccionaste: " + selectedValue, Toast.LENGTH_SHORT).show();
+            bottomSheetDialog.dismiss();
+        });
+
+        // Acción al cerrar el BottomSheet
+        bottomSheetDialog.setOnDismissListener(dialogInterface ->
+                Toast.makeText(requireContext(), "Bottom sheet cerrado", Toast.LENGTH_SHORT).show()
+        );
+
+        // Mostrar el BottomSheet
+        bottomSheetDialog.show();
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_personalizacion_academica, container, false);
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null; // Evitar memory leaks
     }
 }

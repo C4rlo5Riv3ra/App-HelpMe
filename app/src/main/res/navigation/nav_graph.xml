@@ -35,8 +35,8 @@
             android:id="@+id/action_SecondFragment_to_registroEstudianteFragment"
             app:destination="@id/registroEstudianteFragment" />
         <argument
-            android:name="ArgEmail"
-            app:argType="string" />
+            android:name="ArgUsuario"
+            app:argType="com.example.helpme_app.Model.Usuario" />
     </fragment>
 
 
@@ -46,8 +46,8 @@
         android:label="@string/fragment_registro_asesor"
         tools:layout="@layout/fragment_registro_asesor" >
         <argument
-            android:name="ArgEmail"
-            app:argType="string" />
+            android:name="ArgUsuario"
+            app:argType="com.example.helpme_app.Model.Usuario" />
 
         <action
             android:id="@+id/action_registroAsesorFragment_to_RAseAsesoriaFragment"
@@ -59,11 +59,11 @@
         android:label="fragment_registro_estudiante"
         tools:layout="@layout/fragment_registro_estudiante" >
         <argument
-            android:name="ArgEmail"
-            app:argType="string" />
+            android:name="ArgUsuario"
+            app:argType="com.example.helpme_app.Model.Usuario" />
         <action
-            android:id="@+id/action_registroEstudianteFragment_to_academicInterestsFragment"
-            app:destination="@id/academicInterestsFragment" />
+            android:id="@+id/action_registroEstudianteFragment_to_personalizacionacademicaFragment"
+            app:destination="@id/personalizacionacademicaFragment" />
     </fragment>
 
     <fragment
@@ -122,6 +122,16 @@
         android:name="com.example.helpme_app.AcademicInterestsFragment"
         android:label="fragment_academic_interests"
         tools:layout="@layout/fragment_academic_interests" >
+        <action
+            android:id="@+id/action_academicInterestsFragment_to_inicioFragment"
+            app:destination="@id/inicioFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/personalizacionacademicaFragment"
+        android:name="com.example.helpme_app.PersonalizacionAcademicaFragment"
+        android:label="fragment_personalizacion_academica"
+        tools:layout="@layout/fragment_personalizacion_academica" >
         <action
             android:id="@+id/action_academicInterestsFragment_to_inicioFragment"
             app:destination="@id/inicioFragment" />

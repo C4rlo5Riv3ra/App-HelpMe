@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
+import com.example.helpme_app.Model.Usuario;
 import com.example.helpme_app.databinding.FragmentSecondBinding;
 
 public class SecondFragment extends Fragment {
@@ -29,14 +30,15 @@ public class SecondFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        String txtemail = SecondFragmentArgs.fromBundle(getArguments()).getArgEmail();
+        Usuario usuario = new Usuario();
+        usuario.setEmail( SecondFragmentArgs.fromBundle(getArguments()).getArgUsuario().getEmail());
 
 
         binding.bntSTUDENT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 SecondFragmentDirections.ActionSecondFragmentToRegistroEstudianteFragment action =
-                        SecondFragmentDirections.actionSecondFragmentToRegistroEstudianteFragment(txtemail);
+                        SecondFragmentDirections.actionSecondFragmentToRegistroEstudianteFragment(usuario);
                 NavHostFragment.findNavController(SecondFragment.this).navigate(action);
 
             }
@@ -46,7 +48,7 @@ public class SecondFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 SecondFragmentDirections.ActionSecondFragmentToRegistroAsesorFragment action =
-                        SecondFragmentDirections.actionSecondFragmentToRegistroAsesorFragment(txtemail);
+                        SecondFragmentDirections.actionSecondFragmentToRegistroAsesorFragment(usuario);
                 NavHostFragment.findNavController(SecondFragment.this).navigate(action);
             }
         });
