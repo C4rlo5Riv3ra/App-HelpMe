@@ -31,29 +31,29 @@
         app:layout_constraintTop_toBottomOf="@id/tvTitle"
         android:layout_marginTop="10dp"/>
 
-    <EditText
+    <Button
         android:id="@+id/edEspecialidad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:width="350dp"
         android:background="@drawable/editborderblack"
-        android:hint="@string/nameEspecialidad"
+        android:text="@string/nameEspecialidad"
+        android:textColor="@color/black"
         android:padding="12dp"
-        android:drawableEnd="@drawable/baseline_search_24"
         app:layout_constraintTop_toBottomOf="@id/tvSubTitle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <EditText
+    <Button
         android:id="@+id/edAniosEx"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:width="350dp"
         android:background="@drawable/editborderblack"
-        android:hint="@string/ageExperience"
-        android:padding="12dp"
+        android:text="@string/ageExperience"
+        android:textColor="@color/black"        android:padding="12dp"
         app:layout_constraintTop_toBottomOf="@id/edEspecialidad"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
@@ -71,14 +71,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <EditText
+    <Button
         android:id="@+id/edtipoEnsenianza"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:width="300dp"
         android:background="@drawable/editborderblack"
-        android:hint="@string/typeTeaching"
+        android:text="@string/typeTeaching"
+        android:textColor="@color/black"
         android:padding="12dp"
         android:focusable="false"
         android:clickable="true"

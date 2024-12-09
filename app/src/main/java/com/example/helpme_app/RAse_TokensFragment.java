@@ -76,11 +76,11 @@ public class RAse_TokensFragment extends Fragment {
         binding.edTokens.setOnClickListener(v -> showTokensForSesion() );
         binding.edDurationSesion.setOnClickListener(c -> showDurationForSesion());
 
+
         binding.btnContinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavDirections action = RAse_TokensFragmentDirections.actionRAseTokensFragmentToRAseEducationFragment();
-                NavHostFragment.findNavController(RAse_TokensFragment.this).navigate(action);
+
             }
         });
 

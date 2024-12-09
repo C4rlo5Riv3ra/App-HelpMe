@@ -48,10 +48,10 @@
         <argument
             android:name="ArgUsuario"
             app:argType="com.example.helpme_app.Model.Usuario" />
-
         <action
             android:id="@+id/action_registroAsesorFragment_to_RAse_EducationFragment"
             app:destination="@id/RAse_EducationFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/registroEstudianteFragment"
@@ -185,8 +185,6 @@
             app:destination="@id/academicInterestsFragment" />
     </fragment>
 
-
-
     <fragment
         android:id="@+id/RAse_EducationFragment"
         android:name="com.example.helpme_app.RAse_EducationFragment"
@@ -198,7 +196,16 @@
         <action
             android:id="@+id/action_RAse_EducationFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <argument
+            android:name="ArgUsuario"
+            app:argType="com.example.helpme_app.Model.Usuario" />
+        <argument android:name="ArgPersona"
+            app:argType="com.example.helpme_app.Model.Persona" />
+        <action
+            android:id="@+id/action_RAse_EducationFragment_to_disponibilidadAsesorFragment"
+            app:destination="@id/disponibilidadAsesorFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/RAse_TokensFragment"
         android:name="com.example.helpme_app.RAse_TokensFragment"
@@ -207,7 +214,15 @@
     <action
         android:id="@+id/action_RAse_TokensFragment_to_RAse_EducationFragment"
         app:destination="@id/RAse_EducationFragment" />
+        <argument
+            android:name="ArgUsuario"
+            app:argType="com.example.helpme_app.Model.Usuario" />
     </fragment>
+    <fragment
+        android:id="@+id/disponibilidadAsesorFragment"
+        android:name="com.example.helpme_app.DisponibilidadAsesorFragment"
+        android:label="fragment_disponibilidad_asesor"
+        tools:layout="@layout/fragment_disponibilidad_asesor" />
 
     <fragment
         android:id="@+id/loadingfragment"
