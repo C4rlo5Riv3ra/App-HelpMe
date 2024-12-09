@@ -103,7 +103,7 @@ public class RegistroEstudianteFragment extends Fragment {
                     Toast.makeText(getContext(), "Por favor, complete todos los campos", Toast.LENGTH_SHORT).show();
                     return;
                 }
-
+                usuario.setRol(Usuario.Rol.ESTUDIANTE);
                 persona.setNombre(binding.etNombres.getText().toString().trim());
                 persona.setApellidos(binding.etApellidos.getText().toString().trim());
                 persona.setDni(binding.etDocumento.getText().toString().trim());

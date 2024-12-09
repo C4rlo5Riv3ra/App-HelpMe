@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@android:id/background">
+        <shape android:shape="ring">
+            <size
+                android:width="150dp"
+                android:height="150dp" />
+            <solid android:color="@android:color/transparent" />
+        </shape>
+    </item>
+
+    <!-- Círculo de progreso (color blanco) -->
+    <item android:id="@android:id/progress">
+        <shape android:shape="ring">
+            <size
+                android:width="150dp"
+            android:height="8dp" />
+            <solid android:color="@android:color/white" />
+        </shape>
+    </item>
+</layer-list>
