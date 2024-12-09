@@ -47,7 +47,7 @@ public class InicioFragment extends Fragment {
 
         if (savedInstanceState == null) {
             replaceFragment(new HomeFragment());
-            binding.bottomNavigationView.setSelectedItemId(R.id.home);
+           // binding.bottomNavigationView.setSelectedItemId(R.id.home);
         }
 
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {

@@ -118,20 +118,33 @@
         android:label="fragment_compras"
         tools:layout="@layout/fragment_compras" />
     <fragment
+        android:id="@+id/finishEstudianteRegistroFragment"
+        android:name="com.example.helpme_app.FinishEstudianteRegistroFragment"
+        android:label=""
+        tools:layout="@layout/fragment_finish_estudiante_registro" >
+        <action
+            android:id="@+id/action_FinishEstudianteRegistroFragment_to_loading_Fragment"
+            app:destination="@id/loadingfragment" />
+        <argument
+            android:name="ArgUsuario"
+            app:argType="com.example.helpme_app.Model.Usuario" />
+
+        <!-- Argumento para Persona, usando un nombre diferente -->
+        <argument
+            android:name="ArgPersona"
+            app:argType="com.example.helpme_app.Model.Persona" />
+        <argument
+            android:name="selectedInterests"
+            app:argType="string[]" />
+        <argument
+            android:name="ArgEstudiante"
+            app:argType="com.example.helpme_app.Model.Estudiante"/>
+    </fragment>
+    <fragment
         android:id="@+id/academicInterestsFragment"
         android:name="com.example.helpme_app.AcademicInterestsFragment"
         android:label="fragment_academic_interests"
         tools:layout="@layout/fragment_academic_interests" >
-        <action
-            android:id="@+id/action_academicInterestsFragment_to_inicioFragment"
-            app:destination="@id/inicioFragment" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/personalizacionacademicaFragment"
-        android:name="com.example.helpme_app.PersonalizacionAcademicaFragment"
-        android:label="fragment_personalizacion_academica"
-        tools:layout="@layout/fragment_personalizacion_academica" >
 
         <!-- Argumento para Usuario -->
         <argument
@@ -142,10 +155,34 @@
         <argument
             android:name="ArgPersona"
             app:argType="com.example.helpme_app.Model.Persona" />
+        <argument
+            android:name="ArgEstudiante"
+            app:argType="com.example.helpme_app.Model.Estudiante" />
+        <action
+            android:id="@+id/action_academicInterestsFragment_to_FinishEstudianteRegistroFragment"
+            app:destination="@id/finishEstudianteRegistroFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/personalizacionacademicaFragment"
+        android:name="com.example.helpme_app.PersonalizacionAcademicaFragment"
+        android:label="fragment_personalizacion_academica"
+        tools:layout="@layout/fragment_personalizacion_academica" >
+
+        <!-- Argumento para Usuario -->
+
+        <argument
+            android:name="ArgUsuario"
+            app:argType="com.example.helpme_app.Model.Usuario" />
+
+        <!-- Argumento para Persona, usando un nombre diferente -->
+        <argument
+            android:name="ArgPersona"
+            app:argType="com.example.helpme_app.Model.Persona" />
 
         <action
-            android:id="@+id/action_academicInterestsFragment_to_inicioFragment"
-            app:destination="@id/inicioFragment" />
+            android:id="@+id/action_academicInterestsFragment_to_academicInterestsFragment"
+            app:destination="@id/academicInterestsFragment" />
     </fragment>
 
     <fragment
@@ -186,6 +223,16 @@
         android:name="com.example.helpme_app.DisponibilidadAsesorFragment"
         android:label="fragment_disponibilidad_asesor"
         tools:layout="@layout/fragment_disponibilidad_asesor" />
+
+    <fragment
+        android:id="@+id/loadingfragment"
+        android:name="com.example.helpme_app.LoadingFragment"
+        android:label=""
+        tools:layout="@layout/fragment_loading" >
+        <action
+            android:id="@+id/loadingfragment_Fragment_to_login"
+            app:destination="@id/loginFragment" />
+    </fragment>
 
 
 </navigation>

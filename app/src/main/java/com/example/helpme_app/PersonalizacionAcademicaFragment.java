@@ -1,23 +1,30 @@
 package com.example.helpme_app;
-import android.content.DialogInterface;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.NumberPicker;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
 
+import com.example.helpme_app.Model.Estudiante;
+import com.example.helpme_app.Model.Persona;
+import com.example.helpme_app.Model.Usuario;
 import com.example.helpme_app.databinding.FragmentPersonalizacionAcademicaBinding;
-import com.example.helpme_app.databinding.BottomSheetLayoutBinding;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 public class PersonalizacionAcademicaFragment extends Fragment {
 
-    private FragmentPersonalizacionAcademicaBinding binding; // View Binding para el fragmento
+    private FragmentPersonalizacionAcademicaBinding binding;
+
+    // Variables para almacenar los valores seleccionados
+    private String institucionSeleccionada;
+    private String carreraSeleccionada;
+    private String cicloSeleccionado;
 
     @Nullable
     @Override
@@ -29,9 +36,38 @@ public class PersonalizacionAcademicaFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+
+
         binding.carreraButtom.setOnClickListener(v -> showBottomSheetDialogCarrera());
         binding.universityButton.setOnClickListener(v -> showBottomSheetDialogInstitucion());
         binding.cycleButton.setOnClickListener(v -> showBottomSheetDialog());
+
+        binding.nextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Usuario usuario = PersonalizacionAcademicaFragmentArgs.fromBundle(getArguments()).getArgUsuario();
+                Persona persona = PersonalizacionAcademicaFragmentArgs.fromBundle(getArguments()).getArgPersona();
+                Estudiante estudiante = new Estudiante();
+                Toast.makeText(requireContext(), "narumiiiiiiiiii", Toast.LENGTH_SHORT).show();
+                if (institucionSeleccionada != null && carreraSeleccionada != null && cicloSeleccionado != null) {
+                    // Acciones al presionar "Siguiente"
+                    int cicloInt = Integer.parseInt(cicloSeleccionado.replace("Ciclo ", ""));
+
+                    estudiante.setUniversidad(institucionSeleccionada);
+                    estudiante.setCarrera(carreraSeleccionada);
+                    estudiante.setNivelstudios(cicloInt);
+                    String mensaje = "ciclo: " + cicloSeleccionado;
+                    Toast.makeText(requireContext(), mensaje, Toast.LENGTH_SHORT).show();
+                    PersonalizacionAcademicaFragmentDirections.ActionAcademicInterestsFragmentToAcademicInterestsFragment action =
+                            PersonalizacionAcademicaFragmentDirections.actionAcademicInterestsFragmentToAcademicInterestsFragment(usuario, persona, estudiante);
+                    NavHostFragment.findNavController(PersonalizacionAcademicaFragment.this).navigate(action);
+                } else {
+                    Toast.makeText(requireContext(), "Por favor selecciona todos los campos.", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+        });
     }
 
     private void showBottomSheetDialogInstitucion() {
@@ -53,27 +89,27 @@ public class PersonalizacionAcademicaFragment extends Fragment {
                 "Universidad Nacional de Ingeniería (UNI)",
                 "Otro"
         };
+
         NumberPicker numberPicker = bottomSheetView.findViewById(R.id.numberPicker3);
-        numberPicker.setMinValue(0); // Índice mínimo
-        numberPicker.setMaxValue(instituciones.length - 1); // Índice máximo
-        numberPicker.setDisplayedValues(instituciones); // Muestra las instituciones en el picker
-        numberPicker.setWrapSelectorWheel(true); // Hacer cíclico (opcional)
+        numberPicker.setMinValue(0);
+        numberPicker.setMaxValue(instituciones.length - 1);
+        numberPicker.setDisplayedValues(instituciones);
+        numberPicker.setWrapSelectorWheel(true);
 
         numberPicker.setOnValueChangedListener((picker, oldVal, newVal) -> {
-            String institucionSeleccionada = instituciones[newVal];
+            institucionSeleccionada = instituciones[newVal];
             binding.universityButton.setText(institucionSeleccionada);
-            //Toast.makeText(requireContext(), "Seleccionaste: " + institucionSeleccionada, Toast.LENGTH_SHORT).show();
         });
-        bottomSheetDialogInstitucion.setOnDismissListener(dialogInterface ->
-                Toast.makeText(requireContext(), "Bottom sheet cerrado", Toast.LENGTH_SHORT).show()
-        );
+
         bottomSheetDialogInstitucion.show();
     }
 
     private void showBottomSheetDialogCarrera() {
         View bottomSheetView = LayoutInflater.from(requireContext()).inflate(R.layout.bottom_sheet_layout_carreras, null);
+
         BottomSheetDialog bottomSheetDialogcarrera = new BottomSheetDialog(requireContext());
         bottomSheetDialogcarrera.setContentView(bottomSheetView);
+
         String[] carrerasProfesionales = {
                 "Ingeniería de Sistemas", "Ingeniería Civil", "Medicina", "Derecho", "Arquitectura",
                 "Administración de Empresas", "Contabilidad", "Psicología", "Ingeniería Industrial",
@@ -81,44 +117,41 @@ public class PersonalizacionAcademicaFragment extends Fragment {
         };
 
         NumberPicker numberPicker = bottomSheetView.findViewById(R.id.numberPickercarrera);
-        numberPicker.setMinValue(0); // Índice mínimo
+        numberPicker.setMinValue(0);
         numberPicker.setMaxValue(carrerasProfesionales.length - 1);
         numberPicker.setDisplayedValues(carrerasProfesionales);
         numberPicker.setWrapSelectorWheel(true);
+
         numberPicker.setOnValueChangedListener((picker, oldVal, newVal) -> {
-            String carreraSeleccionada = carrerasProfesionales[newVal];
+            carreraSeleccionada = carrerasProfesionales[newVal];
             binding.carreraButtom.setText(carreraSeleccionada);
-            //Toast.makeText(requireContext(), "Seleccionaste: " + carreraSeleccionada, Toast.LENGTH_SHORT).show();
         });
-        bottomSheetDialogcarrera.setOnDismissListener(dialogInterface ->
-                Toast.makeText(requireContext(), "Bottom sheet cerrado", Toast.LENGTH_SHORT).show()
-        );
+
         bottomSheetDialogcarrera.show();
     }
 
     private void showBottomSheetDialog() {
         View bottomSheetView = LayoutInflater.from(requireContext()).inflate(R.layout.bottom_sheet_layout, null);
+
         BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(requireContext());
         bottomSheetDialog.setContentView(bottomSheetView);
 
         NumberPicker numberPicker = bottomSheetView.findViewById(R.id.numberPicker);
-        numberPicker.setMinValue(1); // Valor mínimo
-        numberPicker.setMaxValue(10); // Valor máximo
-        numberPicker.setWrapSelectorWheel(true); // Comportamiento cíclico
+        numberPicker.setMinValue(1);
+        numberPicker.setMaxValue(10);
+        numberPicker.setWrapSelectorWheel(true);
+
         numberPicker.setOnValueChangedListener((picker, oldVal, newVal) -> {
-            String valorSeleccionado = "Ciclo " + newVal;
-            binding.cycleButton.setText(valorSeleccionado); // Actualizar l botón con el valor
-           // Toast.makeText(requireContext(), valorSeleccionado, Toast.LENGTH_SHORT).show();
+            cicloSeleccionado = "Ciclo " + newVal;
+            binding.cycleButton.setText(cicloSeleccionado);
         });
-        bottomSheetDialog.setOnDismissListener(dialogInterface ->
-                Toast.makeText(requireContext(), "Bottom sheet cerrado", Toast.LENGTH_SHORT).show()
-        );
+
         bottomSheetDialog.show();
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        binding = null; // Evitar memory leaks
+        binding = null;
     }
 }
