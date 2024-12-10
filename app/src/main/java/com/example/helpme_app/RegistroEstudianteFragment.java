@@ -108,6 +108,7 @@ public class RegistroEstudianteFragment extends Fragment {
                 persona.setApellidos(binding.etApellidos.getText().toString().trim());
                 persona.setDni(binding.etDocumento.getText().toString().trim());
                 Date fecha = obtenerFechaNacimiento(binding.etFechaNacimiento);
+                usuario.setPassword(binding.etPassword.getText().toString().trim());
                 if (fecha == null) return; // Validación de la fecha
                 persona.setFechanacimiento(fecha);
 

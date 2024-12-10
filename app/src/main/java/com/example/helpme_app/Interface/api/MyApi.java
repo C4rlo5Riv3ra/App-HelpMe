@@ -3,6 +3,7 @@ package com.example.helpme_app.Interface.api;
 import com.example.helpme_app.Model.Estudiantes.EstudianteRequest;
 
 import com.example.helpme_app.Model.InteresesAcademic.ResponseInteresesAcademic;
+import com.google.gson.JsonArray;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -14,5 +15,5 @@ public interface MyApi {
         Call<ResponseInteresesAcademic> getIntereses();
 
         @POST("/crearestudiante")
-        Call<Void> guardarEstudiante(@Body EstudianteRequest asesoriaRequest);
+        Call<JsonArray> guardarEstudiante(@Body EstudianteRequest asesoriaRequest);
 }
