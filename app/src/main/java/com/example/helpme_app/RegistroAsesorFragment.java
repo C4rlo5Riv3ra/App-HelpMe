@@ -69,7 +69,10 @@ public class RegistroAsesorFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        Usuario usuario = RegistroAsesorFragmentArgs.fromBundle(getArguments()).getArgUsuario();
+        Persona persona = new Persona();
+        String emailFormat = getString(R.string.welconCode, usuario.getEmail());
+        binding.tvSubTitle.setText(emailFormat);
         binding.etFechaNacimiento.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -80,8 +83,7 @@ public class RegistroAsesorFragment extends Fragment {
         binding.btnCrearCuenta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Usuario usuario = RegistroAsesorFragmentArgs.fromBundle(getArguments()).getArgUsuario();
-                Persona persona = new Persona();
+
 
                 if (binding.etNombres.getText().toString().trim().isEmpty() ||
                         binding.etApellidos.getText().toString().trim().isEmpty() ||
@@ -96,15 +98,18 @@ public class RegistroAsesorFragment extends Fragment {
                 persona.setDni(binding.etDocumento.getText().toString().trim());
                 Date fecha = obtenerFechaNacimiento(binding.etFechaNacimiento);
                 if (fecha == null) return; // Validación de la fecha
-                persona.setFechanacimiento(fecha);
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+                String fechaFormateada = sdf.format(fecha);
+
+// Ahora que tienes la fecha en formato "yyyy-MM-dd", puedes insertarla en la persona
+                persona.setFechanacimiento(fechaFormateada);
 
                 if (!binding.cbAceptarTerminos.isChecked()) {
                     Toast.makeText(getContext(), "Debes aceptar los términos", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                String emailFormat = getString(R.string.welconCode, usuario.getEmail());
-                binding.tvSubTitle.setText(emailFormat);
+
 
                 RegistroAsesorFragmentDirections.ActionRegistroAsesorFragmentToRAseEducationFragment action =
                         RegistroAsesorFragmentDirections.actionRegistroAsesorFragmentToRAseEducationFragment(usuario, persona);

@@ -2,6 +2,7 @@ package com.example.helpme_app.Interface.api;
 
 import com.example.helpme_app.Model.Estudiantes.EstudianteRequest;
 
+import com.example.helpme_app.Model.Estudiantes.EstudianteResponse;
 import com.example.helpme_app.Model.InteresesAcademic.ResponseInteresesAcademic;
 import com.google.gson.JsonArray;
 
@@ -15,5 +16,5 @@ public interface MyApi {
         Call<ResponseInteresesAcademic> getIntereses();
 
         @POST("/crearestudiante")
-        Call<JsonArray> guardarEstudiante(@Body EstudianteRequest asesoriaRequest);
+        Call<EstudianteResponse> guardarEstudiante(@Body EstudianteRequest estudianteRequest);
 }

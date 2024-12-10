@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,9 +14,12 @@ import android.widget.Toast;
 
 import com.example.helpme_app.Interface.api.MyApi;
 import com.example.helpme_app.Model.Estudiantes.EstudianteRequest;
+import com.example.helpme_app.Model.Estudiantes.EstudianteResponse;
 import com.example.helpme_app.databinding.FragmentFinishEstudianteRegistroBinding;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+
+import java.io.IOException;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -93,48 +97,53 @@ public class FinishEstudianteRegistroFragment extends Fragment {
         Retrofit retrofit = getRetrofit();
         MyApi api = retrofit.create(MyApi.class);
 
-        Call<JsonArray> call = api.guardarEstudiante(estudianteRequest);
-        call.enqueue(new Callback<JsonArray>() {
+        Call<EstudianteResponse> call = api.guardarEstudiante(estudianteRequest);
+        call.enqueue(new Callback<EstudianteResponse>() {
             @Override
-            public void onResponse(Call<JsonArray> call, Response<JsonArray> response) {
+            public void onResponse(Call<EstudianteResponse> call, Response<EstudianteResponse> response) {
+                Log.d("API_CALL", "onResponse: Llamada completada con código: " + response.code());
+
                 if (response.isSuccessful()) {
-                    // Asegúrate de que la respuesta sea un JsonArray válido
-                    if (response.body() != null) {
-                        // Obtener el primer objeto del JsonArray (suponiendo que siempre hay un solo objeto)
-                        JsonObject jsonResponse = response.body().get(0).getAsJsonObject();
-
-                        // Obtener el valor del campo "status"
-                        int status = jsonResponse.get("status").getAsInt();
-
-                        // Comprobar si el registro fue exitoso o hubo un error
-                        if (status == 1) {
-                            // Registro exitoso
-                            Toast.makeText(getContext(), "Estudiante registrado con éxito", Toast.LENGTH_SHORT).show();
+                    EstudianteResponse respuesta = response.body();
+                    if (respuesta != null) {
+                        Log.d("API_CALL", "Respuesta recibida: " + respuesta.toString());
+                        if (respuesta.getStatus() == 1) {
+                            Toast.makeText(getContext(), "Registro exitoso", Toast.LENGTH_SHORT).show();
+                            Log.d("API_CALL", "Registro exitoso: Navegando a siguiente pantalla");
+                            NavHostFragment.findNavController(FinishEstudianteRegistroFragment.this)
+                                    .navigate(R.id.action_FinishEstudianteRegistroFragment_to_loading_Fragment);
                         } else {
-                            // Error en el registro
-                            String mensajeError = jsonResponse.get("message").getAsString();
-                            Toast.makeText(getContext(), "Error: " + mensajeError, Toast.LENGTH_SHORT).show();
+                            Log.e("API_CALL", "Error del servidor: " + respuesta.getMenssage());
+                            Toast.makeText(getContext(), "Error del servidor: " + respuesta.getMenssage(), Toast.LENGTH_SHORT).show();
                         }
+                    } else {
+                        Log.e("API_CALL", "Respuesta nula desde el servidor.");
+                        Toast.makeText(getContext(), "Respuesta nula desde el servidor", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    // Si la respuesta no fue exitosa (por ejemplo, código 400 o 500)
-                    Toast.makeText(getContext(), "Error en la respuesta: " + response.code(), Toast.LENGTH_SHORT).show();
+                    try {
+                        String errorBody = response.errorBody().string();
+                        Log.e("API_CALL", "Error no exitoso con código: " + response.code() + ", cuerpo del error: " + errorBody);
+                        Toast.makeText(getContext(), "Error: " + errorBody, Toast.LENGTH_SHORT).show();
+                    } catch (IOException e) {
+                        Log.e("API_CALL", "Error al leer el cuerpo del error: " + e.getMessage());
+                    }
                 }
             }
 
             @Override
-            public void onFailure(Call<JsonArray> call, Throwable t) {
-                // Error de red o algo falló al hacer la solicitud
-                Toast.makeText(getContext(), "Error de conexión: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+            public void onFailure(Call<EstudianteResponse> call, Throwable t) {
+                Log.e("API_CALL", "Fallo en la llamada: " + t.getMessage());
+                Toast.makeText(getContext(), "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+
     }
 
     private Retrofit getRetrofit() {
         return new Retrofit.Builder()
                 .baseUrl("https://grupo6tdam2024.pythonanywhere.com/")
                 .addConverterFactory(GsonConverterFactory.create())
-
                 .build();
     }
 

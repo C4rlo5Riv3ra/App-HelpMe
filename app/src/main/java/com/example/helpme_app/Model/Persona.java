@@ -6,13 +6,13 @@ public class Persona implements Serializable {
     private  String nombre;
     private  String apellidos;
     private String dni;
-    private Date fechanacimiento;
+    private String fechanacimiento;
 
-    public Date getFechanacimiento() {
+    public String getFechanacimiento() {
         return fechanacimiento;
     }
 
-    public void setFechanacimiento(Date fechanacimiento) {
+    public void setFechanacimiento(String fechanacimiento) {
         this.fechanacimiento = fechanacimiento;
     }
 

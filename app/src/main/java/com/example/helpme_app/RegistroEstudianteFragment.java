@@ -2,6 +2,7 @@ package com.example.helpme_app;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
+import android.text.Html;
 import android.widget.DatePicker;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -82,6 +83,10 @@ public class RegistroEstudianteFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        Usuario usuario = RegistroEstudianteFragmentArgs.fromBundle(getArguments()).getArgUsuario();
+        Persona persona = new Persona();
+        String emailFormat = getString(R.string.welconCode, usuario.getEmail());
+        binding.tvSubTitle.setText(Html.fromHtml(emailFormat));
 
         binding.etFechaNacimiento.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,8 +98,7 @@ public class RegistroEstudianteFragment extends Fragment {
         binding.btnCrearCuenta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Usuario usuario = RegistroEstudianteFragmentArgs.fromBundle(getArguments()).getArgUsuario();
-                Persona persona = new Persona();
+
 
                 if (binding.etNombres.getText().toString().trim().isEmpty() ||
                         binding.etApellidos.getText().toString().trim().isEmpty() ||
@@ -103,22 +107,26 @@ public class RegistroEstudianteFragment extends Fragment {
                     Toast.makeText(getContext(), "Por favor, complete todos los campos", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                usuario.setRol(Usuario.Rol.ESTUDIANTE);
+                usuario.setRol("Estudiante");
                 persona.setNombre(binding.etNombres.getText().toString().trim());
                 persona.setApellidos(binding.etApellidos.getText().toString().trim());
                 persona.setDni(binding.etDocumento.getText().toString().trim());
                 Date fecha = obtenerFechaNacimiento(binding.etFechaNacimiento);
                 usuario.setPassword(binding.etPassword.getText().toString().trim());
                 if (fecha == null) return; // Validación de la fecha
-                persona.setFechanacimiento(fecha);
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+                String fechaFormateada = sdf.format(fecha);
 
+// Ahora que tienes la fecha en formato "yyyy-MM-dd", puedes insertarla en la persona
+                persona.setFechanacimiento(fechaFormateada);
+
+                Toast.makeText(getContext(), "Fecha Nacimiento: " + fecha.toString(), Toast.LENGTH_SHORT).show();
                 if (!binding.cbAceptarTerminos.isChecked()) {
                     Toast.makeText(getContext(), "Debes aceptar los términos", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                String emailFormat = getString(R.string.welconCode, usuario.getEmail());
-                binding.tvSubTitle.setText(emailFormat);
+
 
                 RegistroEstudianteFragmentDirections.ActionRegistroEstudianteFragmentToPersonalizacionacademicaFragment action =
                         RegistroEstudianteFragmentDirections.actionRegistroEstudianteFragmentToPersonalizacionacademicaFragment(usuario, persona);
