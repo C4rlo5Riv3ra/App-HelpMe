@@ -1,7 +1,7 @@
 package com.example.helpme_app.Model.Estudiantes;
 
 public class EstudianteResponse {
-    private String data[];
+    private Object data;
     private String menssage;
     private int status;
 
@@ -14,20 +14,20 @@ public class EstudianteResponse {
     public EstudianteResponse() {
     }
 
+    public Object getData() {
+        return data;
+    }
+
+    public void setData(Object data) {
+        this.data = data;
+    }
+
     public String getMenssage() {
         return menssage;
     }
 
     public void setMenssage(String menssage) {
         this.menssage = menssage;
-    }
-
-    public String[] getData() {
-        return data;
-    }
-
-    public void setData(String[] data) {
-        this.data = data;
     }
 
     public int getStatus() {

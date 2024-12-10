@@ -44,6 +44,6 @@ public class LoadingFragment extends Fragment {
                 NavHostFragment.findNavController(LoadingFragment.this)
                         .navigate(R.id.loadingfragment_Fragment_to_login);
             }
-        }, 10000); // 10 segundos en milisegundos
+        }, 4000); // 10 segundos en milisegundos
     }
 }

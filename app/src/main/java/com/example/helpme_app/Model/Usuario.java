@@ -6,8 +6,17 @@ public class Usuario implements Serializable {
     private int idUsuario;
     private String email;
     private String password;
-    private Rol rol; // Enum para el campo rol
+    private String rol; // Enum para el campo rol
     private int persona;
+
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
+    }
+
     private String biografia;
     private byte[] fotoprofile; // Usamos byte[] para almacenar el longblob
     private int tokens;
@@ -28,13 +37,7 @@ public class Usuario implements Serializable {
         this.persona = persona;
     }
 
-    public Rol getRol() {
-        return rol;
-    }
 
-    public void setRol(Rol rol) {
-        this.rol = rol;
-    }
 
     public String getPassword() {
         return password;
@@ -52,7 +55,7 @@ public class Usuario implements Serializable {
         this.email = email;
     }
 
-    public Usuario(float saldo, int tokens, byte[] fotoprofile, String biografia, int persona, Rol rol, String password, String email, int idUsuario) {
+    public Usuario(float saldo, int tokens, byte[] fotoprofile, String biografia, int persona, String rol, String password, String email, int idUsuario) {
         this.saldo = saldo;
         this.tokens = tokens;
         this.fotoprofile = fotoprofile;
@@ -97,26 +100,6 @@ public class Usuario implements Serializable {
     }
 
     private float saldo;
-
-    public enum Rol {
-        ESTUDIANTE("Estudiante"),
-        ASESOR("Asesor");
-
-        private final String value;
-
-        Rol(String value) {
-            this.value = value;
-        }
-
-        public String getValue() {
-            return value;
-        }
-
-        @Override
-        public String toString() {
-            return value;
-        }
-    }
 
     public Usuario() {
         // Constructor vacío para inicialización sin parámetros
