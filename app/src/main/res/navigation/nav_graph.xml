@@ -51,6 +51,9 @@
         <action
             android:id="@+id/action_registroAsesorFragment_to_RAse_EducationFragment"
             app:destination="@id/RAse_EducationFragment" />
+        <argument
+            android:name="ArgPersona"
+            app:argType="com.example.helpme_app.Model.Persona" />
 
     </fragment>
     <fragment
@@ -204,6 +207,15 @@
         <action
             android:id="@+id/action_RAse_EducationFragment_to_disponibilidadAsesorFragment"
             app:destination="@id/disponibilidadAsesorFragment" />
+        <action
+            android:id="@+id/action_RAse_EducationFragment_to_loadingfragment"
+            app:destination="@id/loadingfragment" />
+        <argument
+            android:name="ArgTokens"
+            app:argType="com.example.helpme_app.Model.Tokens" />
+        <argument
+            android:name="ArgDisponibilidad"
+            app:argType="com.example.helpme_app.Model.Disponibilidad" />
     </fragment>
 
     <fragment
@@ -217,12 +229,37 @@
         <argument
             android:name="ArgUsuario"
             app:argType="com.example.helpme_app.Model.Usuario" />
+        <argument
+            android:name="ArgPersona"
+            app:argType="com.example.helpme_app.Model.Persona" />
+        <argument
+            android:name="ArgAsesor"
+            app:argType="com.example.helpme_app.Model.Asesor" />
+        <argument
+            android:name="ArgTokens"
+            app:argType="com.example.helpme_app.Model.Tokens" />
     </fragment>
     <fragment
         android:id="@+id/disponibilidadAsesorFragment"
         android:name="com.example.helpme_app.DisponibilidadAsesorFragment"
         android:label="fragment_disponibilidad_asesor"
-        tools:layout="@layout/fragment_disponibilidad_asesor" />
+        tools:layout="@layout/fragment_disponibilidad_asesor" >
+        <argument
+            android:name="ArgUsuario"
+            app:argType="com.example.helpme_app.Model.Usuario" />
+        <argument
+            android:name="ArgPersona"
+            app:argType="com.example.helpme_app.Model.Persona" />
+        <argument
+            android:name="ArgAsesor"
+            app:argType="com.example.helpme_app.Model.Asesor" />
+        <action
+            android:id="@+id/action_disponibilidadAsesorFragment_to_RAse_EducationFragment"
+            app:destination="@id/RAse_EducationFragment" />
+        <argument
+            android:name="ArgDisponibilidad"
+            app:argType="com.example.helpme_app.Model.Disponibilidad" />
+    </fragment>
 
     <fragment
         android:id="@+id/loadingfragment"

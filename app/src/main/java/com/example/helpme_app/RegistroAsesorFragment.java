@@ -108,12 +108,12 @@ public class RegistroAsesorFragment extends Fragment {
                     Toast.makeText(getContext(), "Debes aceptar los términos", Toast.LENGTH_SHORT).show();
                     return;
                 }
-
-
-
+/*
                 RegistroAsesorFragmentDirections.ActionRegistroAsesorFragmentToRAseEducationFragment action =
                         RegistroAsesorFragmentDirections.actionRegistroAsesorFragmentToRAseEducationFragment(usuario, persona);
                 NavHostFragment.findNavController(RegistroAsesorFragment.this).navigate(action);
+
+ */
             }
         });
 

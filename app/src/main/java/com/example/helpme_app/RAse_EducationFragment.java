@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavDirections;
 import androidx.navigation.fragment.NavHostFragment;
@@ -14,56 +15,21 @@ import android.view.ViewGroup;
 import android.widget.NumberPicker;
 import android.widget.Toast;
 
+import com.example.helpme_app.Model.Asesor;
+import com.example.helpme_app.Model.Disponibilidad;
+import com.example.helpme_app.Model.Persona;
+import com.example.helpme_app.Model.Tokens;
+import com.example.helpme_app.Model.Usuario;
 import com.example.helpme_app.databinding.FragmentRAseEducationBinding;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link RAse_EducationFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class RAse_EducationFragment extends Fragment {
     private FragmentRAseEducationBinding binding;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public RAse_EducationFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment RAse_EducationFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static RAse_EducationFragment newInstance(String param1, String param2) {
-        RAse_EducationFragment fragment = new RAse_EducationFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    private String aniosExperienciaSeleccionada;
+    private String especialidadSeleccionada;
+    private String enseniazaPreferidaSeleccionada;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -71,9 +37,15 @@ public class RAse_EducationFragment extends Fragment {
         return  binding.getRoot();
     }
 
-
+    @Override
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        Usuario usuario = RAse_EducationFragmentArgs.fromBundle(getArguments()).getArgUsuario();
+        Persona persona = RAse_EducationFragmentArgs.fromBundle(getArguments()).getArgPersona();
+        Asesor asesor = new Asesor();
+        Tokens tokens = new Tokens();
+        Disponibilidad disponibilidad = new Disponibilidad();
 
         binding.edEspecialidad.setOnClickListener(v -> showBottomSheetDialogEspecialidad());
         binding.edAniosEx.setOnClickListener(v -> showBottomSheetDialogAniosExperiencia());
@@ -84,7 +56,40 @@ public class RAse_EducationFragment extends Fragment {
         binding.btnContinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavDirections action = RAse_EducationFragmentDirections.actionRAseEducationFragmentToDisponibilidadAsesorFragment();
+
+                //Toast.makeText(requireContext(), "si pasa ga", Toast.LENGTH_SHORT).show();
+                if (especialidadSeleccionada != null && enseniazaPreferidaSeleccionada != null && aniosExperienciaSeleccionada != null){
+
+                    int anioExpInt = Integer.parseInt(aniosExperienciaSeleccionada.replace("Años", ""));
+                    asesor.setEspecialidad(especialidadSeleccionada);
+                    asesor.setEnseniazaPreferida(enseniazaPreferidaSeleccionada);
+                    asesor.setAniosExperiencia(anioExpInt);
+                    asesor.setCodigoColegiatura(binding.edcodColegiatura.getText().toString().trim());
+
+                    NavHostFragment.findNavController(RAse_EducationFragment.this)
+                            .navigate(R.id.action_RAse_EducationFragment_to_loadingfragment);
+
+                }else {
+                    Toast.makeText(requireContext(), "Por favor selecciona todos los campos.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+
+        binding.edDisponibilidad.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                RAse_EducationFragmentDirections.ActionRAseEducationFragmentToDisponibilidadAsesorFragment action =
+                        RAse_EducationFragmentDirections.actionRAseEducationFragmentToDisponibilidadAsesorFragment(usuario, persona, asesor, disponibilidad);
+                NavHostFragment.findNavController(RAse_EducationFragment.this).navigate(action);
+            }
+        });
+
+        binding.edTokens.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                RAse_EducationFragmentDirections.ActionRAseEducationFragmentToRAseTokensFragment action =
+                        RAse_EducationFragmentDirections.actionRAseEducationFragmentToRAseTokensFragment(usuario, persona, asesor, tokens);
                 NavHostFragment.findNavController(RAse_EducationFragment.this).navigate(action);
             }
         });
@@ -118,8 +123,10 @@ public class RAse_EducationFragment extends Fragment {
         numberPicker.setWrapSelectorWheel(true); // Hacer cíclico (opcional)
 
         numberPicker.setOnValueChangedListener((picker, oldVal, newVal) -> {
-            String institucionSeleccionada = especialidades[newVal];
-            binding.edEspecialidad.setText(institucionSeleccionada);
+            especialidadSeleccionada = especialidades[newVal];
+            binding.edEspecialidad.setText(especialidadSeleccionada);
+            //String institucionSeleccionada = especialidades[newVal];
+            //binding.edEspecialidad.setText(institucionSeleccionada);
             //Toast.makeText(requireContext(), "Seleccionaste: " + institucionSeleccionada, Toast.LENGTH_SHORT).show();
         });
         bottomSheetDialogEspecialidad.setOnDismissListener(dialogInterface ->
@@ -138,8 +145,11 @@ public class RAse_EducationFragment extends Fragment {
         numberPicker.setMaxValue(15); // Valor máximo
         numberPicker.setWrapSelectorWheel(true); // Comportamiento cíclico
         numberPicker.setOnValueChangedListener((picker, oldVal, newVal) -> {
-            String valorElegido = "Experiencia "+ "mas de " + newVal+ " años";
-            binding.edAniosEx.setText(valorElegido); // Actualizar l botón con el valor
+            aniosExperienciaSeleccionada = newVal + " años" ;
+            binding.edAniosEx.setText(aniosExperienciaSeleccionada);
+
+            //String valorElegido = "Experiencia "+ "mas de " + newVal+ " años";
+            //binding.edAniosEx.setText(valorElegido); // Actualizar l botón con el valor
             // Toast.makeText(requireContext(), valorElegido, Toast.LENGTH_SHORT).show();
         });
         bottomSheetDialog.setOnDismissListener(dialogInterface ->
@@ -163,8 +173,11 @@ public class RAse_EducationFragment extends Fragment {
         numberPicker.setWrapSelectorWheel(true); // Hacer cíclico (opcional)
 
         numberPicker.setOnValueChangedListener((picker, oldVal, newVal) -> {
-            String ensenianzaSeleccionada = tipoEnseñanza[newVal];
-            binding.edtipoEnsenianza.setText(ensenianzaSeleccionada);
+            enseniazaPreferidaSeleccionada = tipoEnseñanza[newVal];
+            binding.edtipoEnsenianza.setText(enseniazaPreferidaSeleccionada);
+
+            //String ensenianzaSeleccionada = tipoEnseñanza[newVal];
+            //binding.edtipoEnsenianza.setText(ensenianzaSeleccionada);
             //Toast.makeText(requireContext(), "Seleccionaste: " + institucionSeleccionada, Toast.LENGTH_SHORT).show();
         });
         bottomSheetDialogEspecialidad.setOnDismissListener(dialogInterface ->
