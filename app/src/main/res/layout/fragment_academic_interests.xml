@@ -41,6 +41,11 @@
         app:layout_constraintTop_toBottomOf="@id/titulo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <ScrollView
+        android:id="@+id/scrolview1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <LinearLayout
         android:id="@+id/interesesContainer"
         android:layout_width="match_parent"
@@ -50,6 +55,7 @@
         app:layout_constraintTop_toBottomOf="@id/subtitulo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+    </ScrollView>
 
     <Button
         android:id="@+id/btnSiguiente"
@@ -59,7 +65,6 @@
         android:textColor="#FFFFFF"
         android:backgroundTint="#000000"
         android:layout_marginTop="24dp"
-        app:layout_constraintTop_toBottomOf="@id/interesesContainer"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
