@@ -120,7 +120,7 @@ public class RegistroEstudianteFragment extends Fragment {
 // Ahora que tienes la fecha en formato "yyyy-MM-dd", puedes insertarla en la persona
                 persona.setFechanacimiento(fechaFormateada);
 
-                Toast.makeText(getContext(), "Fecha Nacimiento: " + fecha.toString(), Toast.LENGTH_SHORT).show();
+
                 if (!binding.cbAceptarTerminos.isChecked()) {
                     Toast.makeText(getContext(), "Debes aceptar los términos", Toast.LENGTH_SHORT).show();
                     return;

@@ -18,7 +18,5 @@ public interface Grupo06PyAnyApi {
 
     @POST("/guardar_asesoria")
     Call<Void> guardarAsesoria(@Body Asesoria asesoria);
-
-
 }
 

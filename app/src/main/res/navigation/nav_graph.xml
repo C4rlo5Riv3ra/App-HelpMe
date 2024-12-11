@@ -51,9 +51,6 @@
         <action
             android:id="@+id/action_registroAsesorFragment_to_RAse_EducationFragment"
             app:destination="@id/RAse_EducationFragment" />
-        <argument
-            android:name="ArgPersona"
-            app:argType="com.example.helpme_app.Model.Persona" />
 
     </fragment>
     <fragment

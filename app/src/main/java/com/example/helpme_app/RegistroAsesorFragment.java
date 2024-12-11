@@ -73,6 +73,7 @@ public class RegistroAsesorFragment extends Fragment {
         Persona persona = new Persona();
         String emailFormat = getString(R.string.welconCode, usuario.getEmail());
         binding.tvSubTitle.setText(emailFormat);
+
         binding.etFechaNacimiento.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,6 +94,7 @@ public class RegistroAsesorFragment extends Fragment {
                     return;
                 }
 
+                usuario.setRol("Asesor");
                 persona.setNombre(binding.etNombres.getText().toString().trim());
                 persona.setApellidos(binding.etApellidos.getText().toString().trim());
                 persona.setDni(binding.etDocumento.getText().toString().trim());
@@ -108,12 +110,7 @@ public class RegistroAsesorFragment extends Fragment {
                     Toast.makeText(getContext(), "Debes aceptar los términos", Toast.LENGTH_SHORT).show();
                     return;
                 }
-/*
-                RegistroAsesorFragmentDirections.ActionRegistroAsesorFragmentToRAseEducationFragment action =
-                        RegistroAsesorFragmentDirections.actionRegistroAsesorFragmentToRAseEducationFragment(usuario, persona);
-                NavHostFragment.findNavController(RegistroAsesorFragment.this).navigate(action);
 
- */
             }
         });
 

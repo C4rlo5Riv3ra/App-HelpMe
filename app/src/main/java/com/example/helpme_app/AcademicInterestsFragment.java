@@ -85,6 +85,7 @@ public class AcademicInterestsFragment extends Fragment {
                 if (response.isSuccessful() && response.body() != null) {
                     List<ResponseInteresesAcademic.Interes> intereses = response.body().getData(); // Obtén solo el campo `data`
                     populateInterests(intereses); // Pasa la lista de intereses a tu función
+                    Toast.makeText(getContext(), "ASSSSSSSSSSSSSSSSSS", Toast.LENGTH_LONG).show();
                 } else {
                     Toast.makeText(getContext(), "Error al cargar intereses. Intente nuevamente.", Toast.LENGTH_LONG).show();
                     // Imprimir en la consola el detalle del error

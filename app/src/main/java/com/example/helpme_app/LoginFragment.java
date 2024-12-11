@@ -34,6 +34,7 @@ public class LoginFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentLoginBinding.inflate(inflater, container, false);
+
         return binding.getRoot();
     }
 
@@ -88,13 +89,13 @@ public class LoginFragment extends Fragment {
                                 .navigate(R.id.action_loginFragment_to_inicioFragment);
                     }
                 } else {
-                    Toast.makeText(getContext(), "Error: " + response.code(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Credenciales Erroneas", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<AuthResponse> call, Throwable t) {
-                Toast.makeText(getContext(), "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Credenciales Erroneas", Toast.LENGTH_SHORT).show();
             }
         });
     }
