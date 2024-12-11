@@ -49,7 +49,7 @@ public class PersonalizacionAcademicaFragment extends Fragment {
                 Usuario usuario = PersonalizacionAcademicaFragmentArgs.fromBundle(getArguments()).getArgUsuario();
                 Persona persona = PersonalizacionAcademicaFragmentArgs.fromBundle(getArguments()).getArgPersona();
                 Estudiante estudiante = new Estudiante();
-                Toast.makeText(requireContext(), "narumiiiiiiiiii", Toast.LENGTH_SHORT).show();
+                Toast.makeText(requireContext(), "Si pasa go next", Toast.LENGTH_SHORT).show();
                 if (institucionSeleccionada != null && carreraSeleccionada != null && cicloSeleccionado != null) {
                     // Acciones al presionar "Siguiente"
                     int cicloInt = Integer.parseInt(cicloSeleccionado.replace("Ciclo ", ""));

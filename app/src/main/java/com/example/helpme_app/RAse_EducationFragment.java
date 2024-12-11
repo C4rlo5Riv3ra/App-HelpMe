@@ -53,11 +53,12 @@ public class RAse_EducationFragment extends Fragment {
         //  binding.edDisponibilidad.setOnClickListener(v -> showBottomSheetDialogDisponibilidad());
         // binding.edTokens.setOnClickListener(v -> showBottomSheetDialogToken());
 
+        Toast.makeText(requireContext(), "si pasa ga", Toast.LENGTH_SHORT).show();
         binding.btnContinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                //Toast.makeText(requireContext(), "si pasa ga", Toast.LENGTH_SHORT).show();
+
                 if (especialidadSeleccionada != null && enseniazaPreferidaSeleccionada != null && aniosExperienciaSeleccionada != null){
 
                     int anioExpInt = Integer.parseInt(aniosExperienciaSeleccionada.replace("Años", ""));
