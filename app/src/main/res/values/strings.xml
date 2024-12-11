@@ -14,13 +14,13 @@
     <string name="previous">Previous</string>
 
     <!-- Registro General -->
-    <string name="txttitleRegister">Dejanos tu <font color="#0000"><b>correo</b></font> para empezar juntos</string>
-    <string name="txtcontidions">Al continuar acepto las condiciones de <b>Helpme!</b>. <font color="#0000"><b><u>Politicas de Privacidad y Terminos de Uso</u></b></font></string>
+    <string name="txttitleRegister">Déjanos tu <font color="#0000"><b>correo</b></font> para empezar juntos</string>
+    <string name="txtcontidions">Al continuar acepto las condiciones de <b>Helpme!</b>. <font color="#0000"><b><u>Políticas de Privacidad y Términos de Uso</u></b></font></string>
     <string name="txthintEmail">Ingrese su correo</string>
     <string name="btnNext">Siguiente</string>
 
     <!-- Pregunta Estudiante o Asesor -->
-    <string name="txtquestionStudentAdviser">¿Eres <font color="#F6A700"><b>Estudiante🎓</b></font> o <font color="#F6A700"><b>Asesor Academico 📚</b></font>? Elije una opcion para continuar</string>
+    <string name="txtquestionStudentAdviser">¿Eres <font color="#F6A700"><b>Estudiante🎓</b></font> o <font color="#F6A700"><b>Asesor Académico 📚</b></font>? Elije una opcion para continuar</string>
     <string name="btnStudent">Estudiante</string>
     <string name="btnAdviser">Asesor Academico</string>
 
@@ -32,7 +32,7 @@
     <string name="txtIdentity">Doc. Identidad</string>
     <string name="txtPassword">Contraseña</string>
     <string name="txtbirthdate">Fecha de Nacimiento</string>
-    <string name="acceptNotification">Acepto la <b><u>Politica de Privacidad</u></b> de Helpme! y <b><u>Condiciones de Uso</u></b></string>
+    <string name="acceptNotification">Acepto la <b><u>Política de Privacidad</u></b> de Helpme! y <b><u>Condiciones de Uso</u></b></string>
     <string name="privacyPolicy">Acepto recibir correos electronicos de actualizaciones de Helpme!</string>
     <string name="btncreateAccount">Crear Cuenta</string>
 
@@ -45,9 +45,9 @@
     <string name="disponibilidad">Disponibilidad</string>
     <string name="Certifications">Certificados</string>
     <string name="TokensForSesion">Tokens por Sesion</string>
-    <string name="typeAdviser">Tipo de Asesoria</string>
-    <string name="TokensForPay">Tokens (Costo/Asesoria)</string>
-    <string name="HoursSesions">Duracion (Horas)</string>
+    <string name="typeAdviser">Tipo de Asesoría</string>
+    <string name="TokensForPay">Tokens (Costo/Asesoría)</string>
+    <string name="HoursSesions">Duración (Horas)</string>
 
 
     <!-- Inicio de Sesión -->
@@ -81,6 +81,16 @@
     <string name="nameProgramaAcademico">Programa academico</string>
     <string name="levelEducation">Nivel de estudios</string>
     <string name="btnFollowing">Siguiente</string>
+
+
+    <!-- PERSONALIZACION ACADEMICA -->
+    <string name="personalizacionAcad">Hola <font color="#FFFFA500">%1$s</font> , ¡estás a un paso de disfrutar de la mejor asesoría!</string>
+    <string name="descripPersonalizacion">Ayúdanos a personalizar tu experiencia para que se ajuste a tus necesidades académicas.</string>
+    <string name="IEduc">Institución Educativa</string>
+    <string name="PoC">Programa o carrerra</string>
+    <string name="selecCoS">Seleccionar Ciclo o Semestre</string>
+
+
 
     <!-- Intereses Académicos -->
     <string name="interesAcademicos">Selecciona tus intereses Académicos</string>
